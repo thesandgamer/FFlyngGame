@@ -1,0 +1,81 @@
+
+
+Comment créer un niveau:
+
+
+//------------------------
+Etape 1:
+
+Il faut créer une nouvelle classe ( Clique droit sur le dossier level => Ajouter => Classe)
+Mettre comme parent: "Level"
+Replacer le .h et le .cpp dans le dossier Level
+
+
+//-------------------------------------
+Etape 2:
+
+rajouter \/ dans le .h de votre nouvelle classe
+
+/*
+
+    NomDeLaClasse();
+    ~NomDeLaClasse();
+
+    void Start() override;
+    void Update() override;
+    void Draw() override;
+    void DrawUi() override;
+
+*/
+
+et \/ dans le .cpp
+
+/*
+    NomDeLaClasse::Level0()
+    {
+    }
+
+    NomDeLaClasse::~Level0()
+    {
+    }
+
+    void NomDeLaClasse::Start()
+    {
+        Level::Start();
+    }
+
+    void NomDeLaClasse::Update()
+    {
+        Level::Update();
+    }
+
+    void NomDeLaClasse::Draw()
+    {
+        Level::Draw();
+    }
+
+    void NomDeLaClasse::DrawUi()
+    {
+        Level::DrawUi();
+    }
+*/
+
+//------------------------------------------------
+Etape 3:
+
+allez dans le levelManager.h et rajouter \/ en dessous des autres includes
+/*
+    #include "NomDeLaClasse.h"
+*/
+
+puis dans le .cpp et rajouter \/ en dessous des autres 
+/*
+	levels.emplace_back(new NomDeLaClasse());
+*/
+
+
+//-------------
+Etape4:
+
+pour tester votre niveau, allez dans le levelManager.h et changez "levelIndex" par celui de votre niveau
+//WIP Utilisez les touches +/- pour naviguer entre les niveaux WIP
