@@ -14,52 +14,8 @@ void Ch_MainCharacter::Start()
     bodyCol.id = 12;
     bodyCol.checkingCollision = true;
     bodyCol.layer = Layer3;
-    bodyCol.showCollisions = true;
+    bodyCol.showCollisions = false;
 
-    /*
-    //---------------
-    bodyBox.SetParent(&transf);
-    bodyBox.id = 12;
-    groundBox.SetParent(&transf);
-
-    forwardRay.SetParent(&transf);//Ajoute le component
-    rightRay.SetParent(&transf);//Ajoute le component
-    backwarddRay.SetParent(&transf);//Ajoute le component
-    leftRay.SetParent(&transf);//Ajoute le component
-
-    //--------------
-
-    groundBox.layer = Layer1;
-
-    forwardRay.layer = Layer1;
-    rightRay.layer = Layer1;
-    backwarddRay.layer = Layer1;
-    leftRay.layer = Layer1;
-
-    //-------------------
-    bodyBox.layer = Layer3;
-    bodyBox.collideWithLayer = Layer4;//Il ne collisionne avec personne
-   // bodyBox.trigger = true;
-
-    
-    //-------------//Offset des boites de collision //----------------------------
-    groundBox.Offset.translation = { 0,-1.8f,0 };//Place le rayon au pieds
-
-    forwardRay.Offset.translation = { 0,-1.f,0 };
-    rightRay.Offset.translation = { 0,-1.f,0 };
-    backwarddRay.Offset.translation = { 0,-1.f,0 };
-    leftRay.Offset.translation = { 0,-1.f,0 };
-
-    //-----------------
-    groundBox.checkingCollision = true;
-    bodyBox.checkingCollision = true;
-
-    forwardRay.checkingCollision = true;
-    rightRay.checkingCollision = true;
-    backwarddRay.checkingCollision = true;
-    leftRay.checkingCollision = true;
-    //-------
-    */
     camera.Start();
 
     pb.canFall = false;
@@ -76,16 +32,7 @@ void Ch_MainCharacter::Draw()
     camera.Draw();
     DrawCube({transf.translation.x,transf.translation.y-0.5f,transf.translation.z}, 0.1f, 0.1f, 0.1f, LIME);//Dessine son corps
     bodyCol.Draw();
-    /*
-    groundBox.Draw();
-    //bodyBox.Draw();
 
-    forwardRay.Draw();
-    rightRay.Draw();
-    leftRay.Draw();
-    backwarddRay.Draw();
-
-    */
     shootingComponent.Draw();
 
     //-----------
@@ -188,7 +135,7 @@ void Ch_MainCharacter::ProcessInputs()
 
     if (IsMouseButtonDown(0))
     {  
-        shootingComponent.Shoot(pos, Vector3Multiply(GetForwardVector(),{1,1,1}),300);
+        shootingComponent.Shoot(pos, Vector3Multiply(GetForwardVector(),{1,1,1}),3500);
     }
     if (IsMouseButtonPressed(1))
     {
