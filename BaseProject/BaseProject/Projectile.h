@@ -1,5 +1,5 @@
 #pragma once
-#include "Gravity.h"
+#include "PhysicBody.h"
 #include "BoxCollision.h"	
 #include "CubeActor.h"	
 
@@ -21,7 +21,7 @@ public:
 	void Draw();
 	void Update();
 
-	Gravity grav{};
+	PhysicBody grav{};
 
 	std::shared_ptr<BoxCollision> GetCollider() { return std::make_shared<BoxCollision>(collider); }
 

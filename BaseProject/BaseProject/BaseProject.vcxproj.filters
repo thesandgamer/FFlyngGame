@@ -69,7 +69,7 @@
     <ClInclude Include="LevelManager.h">
       <Filter>Header Files\Engine\LevelManging</Filter>
     </ClInclude>
-    <ClInclude Include="Gravity.h">
+    <ClInclude Include="PhysicBody.h">
       <Filter>Header Files\Engine\Physics</Filter>
     </ClInclude>
     <ClInclude Include="Utility.h">
@@ -140,7 +140,7 @@
     <ClCompile Include="Ennemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gravity.cpp">
+    <ClCompile Include="PhysicBody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IActivable.cpp">

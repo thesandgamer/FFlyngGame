@@ -183,7 +183,7 @@
     <ClInclude Include="EndPortal.h" />
     <ClInclude Include="Ennemy.h" />
     <ClInclude Include="GMath.hpp" />
-    <ClInclude Include="Gravity.h" />
+    <ClInclude Include="PhysicBody.h" />
     <ClInclude Include="IActivable.h" />
     <ClInclude Include="Interuptor.h" />
     <ClInclude Include="Level.h" />
@@ -212,7 +212,7 @@
     <ClCompile Include="EndPortal.cpp" />
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="GMath.cpp" />
-    <ClCompile Include="Gravity.cpp" />
+    <ClCompile Include="PhysicBody.cpp" />
     <ClCompile Include="IActivable.cpp" />
     <ClCompile Include="Interuptor.cpp" />
     <ClCompile Include="Level.cpp" />

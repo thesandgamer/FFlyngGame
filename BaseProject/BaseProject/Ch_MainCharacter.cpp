@@ -62,9 +62,9 @@ void Ch_MainCharacter::Start()
     */
     camera.Start();
 
-    gravity.canFall = false;
-    gravity.SetPos(&pos);
-    gravity.SetColliderForCollisionCheck(&bodyCol);//Set la boite de collision pour le check des cols de la gravité
+    pb.canFall = false;
+    pb.SetPos(&pos);
+    pb.SetColliderForCollisionCheck(&bodyCol);//Set la boite de collision pour le check des cols de la gravité
 
 
     shootingComponent.Start();
@@ -105,12 +105,8 @@ void Ch_MainCharacter::DrawUi()
 
 void Ch_MainCharacter::Update()
 {
-    //Process Gravity
-
-    //--On va d'abord effectuer l'anticipation du mouvement de la gravité
-    //Si cette anticipation ne collide pas appliquer le mouvement
-    //gravity.canFall = (groundBox.IsColliding()) ? false : true;gravity.Update();
-    gravity.Update();
+    //Process PhysicBody
+    pb.Update();
 
     //Process inputs
     ProcessInputs();
@@ -131,17 +127,14 @@ void Ch_MainCharacter::Update()
     
     //-------------
 
-    ProcessCollisions();
 
     Move();
 
     camera.Update();
 
-   // ProcessJump();
 
     shootingComponent.Update();
 
-    //if (isGrounded) canDash = true;
 
 
 
@@ -182,12 +175,10 @@ void Ch_MainCharacter::ProcessInputs()
     dir[2] = IsKeyDown(KEY_D);
     dir[3] = IsKeyDown(KEY_A);
 
-    if (IsKeyPressed(KEY_SPACE)) Jump();
-    if (IsKeyReleased(KEY_SPACE)) StopJumping();
 
     if (IsKeyDown(KEY_SPACE))
     {
-        Jump();
+        GoUp();
     }
     else if (IsKeyDown(KEY_LEFT_CONTROL))
     {
@@ -233,7 +224,7 @@ void Ch_MainCharacter::Move()
     //------------------Va déplacer le character
    // BaseMovement(xValue, yValue);
    // AccelerationFrictionMove(xValue, yValue, zValue); //Bouge la position 
-    gravity.SetForce({ xValue * maxSpeed , yValue * maxSpeed ,zValue * maxSpeed });
+    pb.SetForce({ xValue * maxSpeed , zValue * maxSpeed ,yValue * maxSpeed });
 
     transf.translation = pos;   //Bouge le transform du character 
 
@@ -241,54 +232,6 @@ void Ch_MainCharacter::Move()
 
 }
 
-void Ch_MainCharacter::BaseMovement(float xValue, float yValue)
-{
-    maxSpeed = 10;
-
-    xValue *= maxSpeed;
-    yValue *= maxSpeed;
-
-    pos.x += xValue * GetFrameTime();
-    pos.z += yValue * GetFrameTime();
-}
-
-void Ch_MainCharacter::AccelerationFrictionMove(float xValue, float yValue, float zValue)
-{
-    float dt = GetFrameTime();
-    
-    //On défnit les valeur maxes
-    xValue *= maxSpeed;
-    yValue *= maxSpeed;
-    zValue *= maxSpeed;
-
-    acc.x = xValue;
-    acc.y = yValue;
-    acc.z = zValue;
-
-    //Fricction : on réduit l'accélération
-    acc.x += deceleration * vel.x;
-    acc.y += deceleration * vel.y;
-    acc.z += deceleration * vel.z;
-
-    //On repositionne avec une accélération
-    pos.x += dt * vel.x + 0.5f * acc.x * dt * dt;
-    pos.z += dt * vel.y + 0.5f * acc.y * dt * dt;
-    pos.y += dt * vel.z + 0.5f * acc.z * dt * dt;
-
-    //On augmente la vélocité
-    vel.x += dt * acc.x;
-    vel.y += dt * acc.y;
-    vel.z += dt * acc.z;
-
-    acc = { 0,0 ,0};
-}
-
-void Ch_MainCharacter::MoveWithEasing(float xValue, float yValue)
-{
-    //Utiliser du lerp avec du easing pour lerper la valeur de 
-    //actual speed entre 0 et max speed
-    //puis changer la position avec xValue * actual speed
-}
 
 Vector3 Ch_MainCharacter::GetForwardVector()
 {
@@ -309,112 +252,20 @@ Vector3 Ch_MainCharacter::GetVector(Vector3 dir)
 void Ch_MainCharacter::Death()
 {
     SetPos({ 4,20,4 });
+    pb.velocity = { 0,0,0 };
 }
 
-void Ch_MainCharacter::ProcessCollisions()
+
+void Ch_MainCharacter::GoUp()
 {
-    //++ToDo: faire en sorte qu'en cas de collisions, replace à la position d'avant
-    //Voir la prochaine position, voir si ça collide, si ça collide on avance pas 
-
-    /*
-    forwardRay.SetDirection(GetVector({ 0,0,-1 }));
-    rightRay.SetDirection(GetVector({ 1,0,0 }));
-    backwarddRay.SetDirection(GetVector({ 0,0,1 }));
-    leftRay.SetDirection(GetVector({ -1,0,0 }));
-
-    //Place Ray to futur position
-    forwardRay.Transform->translation = pos;
-    rightRay.Transform->translation = pos;
-    backwarddRay.Transform->translation = pos;
-    leftRay.Transform->translation = pos;
-    */
-    //Change State
-
-   // state = (groundBox.IsColliding()) ? InAir : Grounded;
-   // isGrounded = groundBox.IsColliding();
-
-    //std::cout << "X: " << vel.x << " Y: " << vel.y << "\n";
-    //++ToDo: faire en sorte de bien faire les collisions
-    //---------------
-    /*
-    if (forwardRay.IsColliding()) {
-        collisionDirection |= Front;    //Ajoute collision front
-        dir[0] = false;
-        vel = { 0,0 };
-    }
-    else collisionDirection ^= Front;
-
-    if (rightRay.IsColliding()) {
-        collisionDirection |= Right;    //Ajoute collision 
-        dir[2] = false;
-        vel = { 0,0 };
-    }
-    else collisionDirection ^= Right;    //Enlève collision 
-
-    if (backwarddRay.IsColliding()) {
-        collisionDirection |= Back;    //Ajoute collision 
-        dir[1] = false;
-        vel = { 0,0 };
-    }
-    else collisionDirection ^= Back;
-
-    if (leftRay.IsColliding()) {
-        collisionDirection |= Left;    //Ajoute collision 
-        dir[3] = false;
-        vel = { 0,0 };
-    }
-    else collisionDirection ^= Left;
-    */
-
-    //Détécter si on touche un mur, arrète la chute, et on peut resauter
-
+    pb.SetForce({ 0,upDownSpeed,0 });
 }
 
-void Ch_MainCharacter::Jump()
-{
-    gravity.SetForce({ 0,0,maxSpeed });
-    /*
-    if (!isGrounded) return;
-   // if (state == InAir) return;
-    gravity.velocity = { 0,jumpVelocity,0 };//Ajoute une force de saut
-    inJump = true;
-    //Pour désactiver la collision pour pouvoir décoller du sol
-    groundBox.checkingCollision = false;
-    groundBox.collisions = {};
 
-    Sound jmp = Utility::GetInstance()->jumpSound;
-    //PlaySound(jmp);*/
-
-}
-
-void Ch_MainCharacter::ProcessJump()
-{
-    /*
-    float dt = GetFrameTime();
-
-
-    if (gravity.velocity.y < 0) //Quand on chute
-    {
-        gravity.velocity.y += 1 * -GRAVITY_VALUE * (fallMultiplier - 1) * dt;
-        groundBox.checkingCollision = true;
-
-
-    }
-    else if (gravity.velocity.y > 0 && !IsKeyDown(KEY_SPACE))//Quand on est en saut sans appuyer sur la touche de saut
-    {
-        gravity.velocity.y += 1 * -GRAVITY_VALUE * (lowJumpMultiplier - 1) * dt;
-
-    }*/
-}
-
-void Ch_MainCharacter::StopJumping()
-{
-
-}
 
 void Ch_MainCharacter::GoDown()
 {
-    gravity.SetForce({ 0,0,-maxSpeed });
+    pb.SetForce({ 0,-upDownSpeed,0 });
 }
 
 
@@ -422,8 +273,8 @@ void Ch_MainCharacter::Dash()
 {
     if (canDash)
     {
-        //gravity.velocity = { GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce };
-        gravity.SetForce({ GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce });
+        //pb.velocity = { GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce };
+        pb.SetForce({ GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce });
        // canDash = false;
     }
 

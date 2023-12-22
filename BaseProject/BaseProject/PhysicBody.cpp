@@ -1,12 +1,12 @@
-#include "Gravity.h"
+#include "PhysicBody.h"
 
-void Gravity::Update()
+void PhysicBody::Update()
 {
 	//Fall();
 	ProcessVelocity();
 }
 
-void Gravity::SetForce(const Vector3 force)
+void PhysicBody::SetForce(const Vector3 force)
 {
 	velocity.x += force.x;
 	velocity.y += force.y;
@@ -19,7 +19,7 @@ void Gravity::SetForce(const Vector3 force)
 	
 }
 
-void Gravity::Fall()
+void PhysicBody::Fall()
 {
 	const float dt = GetFrameTime();
 
@@ -37,7 +37,7 @@ void Gravity::Fall()
 
 }
 
-void Gravity::ProcessVelocity()
+void PhysicBody::ProcessVelocity()
 {
 	float dt = GetFrameTime();
 
@@ -76,8 +76,10 @@ void Gravity::ProcessVelocity()
 
 	//On repositionne avec une accélération	
 	refPos->x += dt * vel.x + 0.5f * acc.x * dt * dt ;
-	refPos->z += dt * vel.y + 0.5f * acc.y * dt * dt ;
-	refPos->y += dt * vel.z + 0.5f * acc.z * dt * dt ;
+	refPos->y += dt * vel.y + 0.5f * acc.y * dt * dt;
+	refPos->z += dt * vel.z + 0.5f * acc.z * dt * dt;
+
+
 
 	//std::cout << "acc: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
 

@@ -8,7 +8,7 @@
 
 #define GRAVITY_VALUE 9.807
 
-class Gravity
+class PhysicBody
 {
 public:
 	void Update();
