@@ -31,9 +31,13 @@ using namespace std;
 
 //ToDo: modifier le système de collision,
 
-//ToDo: Rajouter un système de vie, perd des pvs quand touché, peut regagner des pvs
-//ToDo: ennemis: se déplacent aléatoirement dans l'espace(A* 3d)
 
+//ToDo: Rajouter un système de vie, perd des pvs quand touché, peut regagner des pvs
+//ToDo: faire système de mort, qui fait respawn a un respawn point si on est le joueur
+//ToDo: ennemis: se déplacent aléatoirement dans l'espace(A* 3d)
+//ToDo: faire un main menu(rétutilisable serait le mieux)
+//ToDo: rajouter Ui de vaisseau avec munitions,...
+//ToDo: Rajouter un tilt sur les coté et sur Haut bas quand on déplace le vaisseau
 
 //Editor Variable
 void Init();
