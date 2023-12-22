@@ -1,0 +1,102 @@
+#include "Gravity.h"
+
+void Gravity::Update()
+{
+	//Fall();
+	ProcessVelocity();
+}
+
+void Gravity::SetForce(const Vector3 force)
+{
+	velocity.x += force.x;
+	velocity.y += force.y;
+	velocity.z += force.z;
+	
+	acc.x = velocity.x;
+	acc.y = velocity.y;
+	acc.z = velocity.z;
+	
+}
+
+void Gravity::Fall()
+{
+	const float dt = GetFrameTime();
+
+
+	refPos->z += ((dt * velocity.z) + (0.5f * acceleration * dt * dt));
+
+	//if (AnticipateCollisions::NextMoveIsColliding(colliderToCheckForCollisions, nextPos)) return;
+
+
+	//++ToDo: refacto pour que ça fasse un truc qui marche vraiment bien
+	//refPos = &nextPos;
+	
+
+
+
+}
+
+void Gravity::ProcessVelocity()
+{
+	float dt = GetFrameTime();
+
+
+	//On défnit les valeur maxes
+
+	//Fricction : on réduit l'accélération
+
+	acc.x += deccValue * vel.x;
+	acc.y += deccValue * vel.y;
+	acc.z += deccValue * vel.z;
+
+	//Y a t'il contact au prochain emplacement:
+		//Oui: je déplace et replace au contact
+		//Non: je déplace au prochain emplacement
+
+	//Il va falloir vérifier si il y a collision au prochain emplacement que prendra la collision
+	//Si la collision ne colisionne pas on va bouger l'objet à son prochain emplacement
+	//Si il y a une collision alors on va calculer où on doit replacer l'objet puis on va le replacer à cet endroit
+	if (colliderToCheckForCollisions != nullptr)
+	{
+		if (colliderToCheckForCollisions->IsColliding())
+		{
+			/*
+			refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt;
+			refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt;
+			refPos->y -= dt * vel.z + 0.5f * acc.z * dt * dt;
+			*/
+			return;
+		}
+		
+	}
+
+
+
+	//On repositionne avec une accélération	
+	refPos->x += dt * vel.x + 0.5f * acc.x * dt * dt ;
+	refPos->z += dt * vel.y + 0.5f * acc.y * dt * dt ;
+	refPos->y += dt * vel.z + 0.5f * acc.z * dt * dt ;
+
+	//std::cout << "acc: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
+
+
+	//Acc = accélération de l'acteur, se rapproche de 0 
+	//Vel = vélocité de l'acteur : se rapproche de la valeur max de velcité ou de 0 en fonction de si accélère ou décléère
+
+	//Quand on relache la touche, l'accération passe donc à la valeur inverse de vélocité, et va donc diminuer avec le temps
+
+	//On augmente la vélocité en fonction de son accélération
+	//vel.x += dt * acc.x;
+//	vel.y += dt * acc.y;
+	//vel.z += dt * acc.z;
+
+	velocity.x -= dt * acc.x;
+	velocity.y -= dt * acc.y;
+	velocity.z -= dt * acc.z;
+	std::cout << "velocity: " << velocity.x << " " << velocity.y << " " << velocity.z << std::endl;
+
+
+	//acc = { 0,0 ,0 };
+}
+
+

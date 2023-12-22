@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{21EB8090-0D4E-1035-B6D3-48EBA215DCB7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E9C7FDCE-D52A-8D73-7EB0-C5296AF258F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{a38b0338-94d1-4f43-acfb-e9c1dad36326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{8753b09c-a934-4787-83fa-c8d7cef99a8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\LevelManging">
+      <UniqueIdentifier>{532b0740-2c2e-4776-ac13-25649bec569f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics">
+      <UniqueIdentifier>{d3f715a2-6848-442f-8d5d-0efac0f7cfcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Component">
+      <UniqueIdentifier>{081c7405-517d-4718-ba74-ea2ef38d0d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Physics\ShapeCollision">
+      <UniqueIdentifier>{50ce8144-87e9-4a3b-93e0-4e575add9c9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ch_MainCharacter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeActor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EndPortal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ennemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IActivable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interuptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level0.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level01.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level03.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableActor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Trigger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files\Engine\LevelManging</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files\Engine\LevelManging</Filter>
+    </ClInclude>
+    <ClInclude Include="Gravity.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="AC_FirstPersonCamera.h">
+      <Filter>Header Files\Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Ac_LifeSystem.h">
+      <Filter>Header Files\Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AC_Shoot.h">
+      <Filter>Header Files\Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="AnticipateCollisions.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Header Files\Engine\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollision.h">
+      <Filter>Header Files\Engine\Physics\ShapeCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="P_Collision.h">
+      <Filter>Header Files\Engine\Physics\ShapeCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="RaycastCollision.h">
+      <Filter>Header Files\Engine\Physics\ShapeCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollision.h">
+      <Filter>Header Files\Engine\Physics\ShapeCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentParent.h">
+      <Filter>Header Files\Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="GMath.hpp" />
+    <ClInclude Include="Maths.h" />
+    <ClInclude Include="Defines.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AC_FirstPersonCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AC_Shoot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ac_LifeSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnticipateCollisions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ch_MainCharacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EndPortal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ennemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gravity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IActivable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interuptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level0.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level01.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level03.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="P_Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RaycastCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Trigger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GMath.cpp" />
+  </ItemGroup>
+</Project>
