@@ -29,7 +29,11 @@ using namespace std;
 //ToDo: chaque physic body à une boite de collision, quand le PB collide avec une autre collision, en fonction de sa vitesse et de sa direction, on va stoppe son déplacement et appliquer une force inverse
 //ToDo: boite collision: Permet de savoir si deux collisions rentrent en contact, où et comment.
 
-//ToDo: modifier le système de collision, 
+//ToDo: modifier le système de collision,
+
+//ToDo: Rajouter un système de vie, perd des pvs quand touché, peut regagner des pvs
+//ToDo: ennemis: se déplacent aléatoirement dans l'espace(A* 3d)
+
 
 //Editor Variable
 void Init();
