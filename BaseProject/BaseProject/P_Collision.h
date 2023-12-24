@@ -50,6 +50,8 @@ public:
 
 	void SetParent(Transform* parentTransform) { transform = parentTransform; }
 
+	Vector3 GetNormalOfCollidingObjects();
+
 	//std::set<std::shared_ptr<P_Collision>> collisions{};
 	std::set<P_Collision*> collisions{};
 

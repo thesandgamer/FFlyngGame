@@ -62,7 +62,17 @@ void PhysicBody::ProcessVelocity()
 		if (colliderToCheckForCollisions->IsColliding())
 		{
 			//ToDo: récupérer la normal de l'impact, le comparer avec la velocité avec un dot product, et appliquer une force inverse en fonction
-			SetForce(Vector3Multiply(velocity,{-2,-2,-2}));
+			Vector3 normal = colliderToCheckForCollisions->GetNormalOfCollidingObjects();
+
+			float dotValue = Vector3DotProduct(velocity, normal);
+
+			Vector3 bounce = {velocity.x - 2*dotValue*normal.x,
+								velocity.y - 2*dotValue*normal.y,
+								velocity.z - 2*dotValue*normal.z};
+
+			// bounce = velocity - 2(Vector3DotProduct(velocity,normal)) * normal;
+			//SetForce(Vector3Multiply(velocity,{-2,-2,-2}));
+			SetForce({bounce.x,bounce.y,bounce.z});
 			/*
 			refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt *10;
 			refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt*10;
