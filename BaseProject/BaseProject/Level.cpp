@@ -37,11 +37,12 @@ void Level::Start()
     }
 
     //Créer la death zone
+    /*
     deathzone = new CubeActor({ 0,-50,0 }, { 800, 10, 800 }, BLACK);
     deathzone->GetCollision()->layer = Layer5;
     deathzone->GetCollision()->collideWithLayer = Layer3;
     deathzone->GetCollision()->checkingCollision = true;
-
+    */
     //Pour le shader
     float cameraPos[3] = { character.GetCamera().position.x,
     character.GetCamera().position.y,
@@ -56,7 +57,7 @@ void Level::Update()
 {
 
     character.Update();
-    deathzone->Update();
+    //deathzone->Update();
 
     CollisionManager::GetInstance()->Update();//Check les collisions
 
@@ -81,10 +82,11 @@ void Level::Update()
         element->Update();
     }
 
+    /*
     if (deathzone->GetCollision()->IsColliding())
     {
         character.Death();
-    }
+    }*/
 
     //------Update lights
 
@@ -124,7 +126,7 @@ void Level::Draw()
         element->Draw();
     }
 
-    deathzone->Draw();
+   // deathzone->Draw();
     character.Draw();
 
 

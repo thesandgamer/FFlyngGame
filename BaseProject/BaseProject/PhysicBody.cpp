@@ -72,7 +72,7 @@ void PhysicBody::ProcessVelocity()
 
 			// bounce = velocity - 2(Vector3DotProduct(velocity,normal)) * normal;
 			//SetForce(Vector3Multiply(velocity,{-2,-2,-2}));
-			SetForce({bounce.x,bounce.y,bounce.z});
+			SetForce({bounce.x* bouncingValue ,bounce.y* bouncingValue,bounce.z* bouncingValue });
 			/*
 			refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt *10;
 			refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt*10;
@@ -84,6 +84,7 @@ void PhysicBody::ProcessVelocity()
 	}
 
 
+	std::cout << "velocity: " << velocity.x << " " << velocity.y << " " << velocity.z << std::endl;
 
 	//On repositionne avec une accélération	
 	refPos->x += dt * vel.x + 0.5f * acc.x * dt * dt ;

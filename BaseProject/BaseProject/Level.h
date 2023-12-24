@@ -43,7 +43,7 @@ protected:
 
 	Light lights[MAX_LIGHTS] = { 0 };
 
-	CubeActor* deathzone;
+	//CubeActor* deathzone;
 
 };
 

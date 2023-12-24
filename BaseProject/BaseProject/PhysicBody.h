@@ -35,6 +35,8 @@ private:
 	void Fall();
 	void ProcessVelocity();
 
+	float bouncingValue {2};
+
 	P_Collision* colliderToCheckForCollisions ;
 
 
