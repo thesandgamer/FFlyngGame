@@ -6,7 +6,7 @@ void PhysicBody::Update()
 	ProcessVelocity();
 }
 
-void PhysicBody::SetForce(const Vector3 force)
+void PhysicBody::AddForce(const Vector3 force)
 {
 	velocity.x += force.x;
 	velocity.y += force.y;
@@ -50,19 +50,19 @@ void PhysicBody::ProcessVelocity()
 	acc.y += deccValue * vel.y;
 	acc.z += deccValue * vel.z;
 
-	//Y a t'il contact au prochain emplacement:
-		//Oui: je déplace et replace au contact
-		//Non: je déplace au prochain emplacement
 
-	//Il va falloir vérifier si il y a collision au prochain emplacement que prendra la collision
-	//Si la collision ne colisionne pas on va bouger l'objet à son prochain emplacement
-	//Si il y a une collision alors on va calculer où on doit replacer l'objet puis on va le replacer à cet endroit
+	DrawRay({ *refPos,Vector3Normalize(vel) }, 50, WHITE);
+
+	
+
 	if (colliderToCheckForCollisions != nullptr)
 	{
-		if (colliderToCheckForCollisions->IsColliding())
+		if (colliderToCheckForCollisions->IsColliding())	//ToDo: il faudrait un check collision at next tick
 		{
 			//ToDo: récupérer la normal de l'impact, le comparer avec la velocité avec un dot product, et appliquer une force inverse en fonction
 			Vector3 normal = colliderToCheckForCollisions->GetNormalOfCollidingObjects();
+
+
 
 			float dotValue = Vector3DotProduct(velocity, normal);
 
@@ -71,8 +71,8 @@ void PhysicBody::ProcessVelocity()
 								velocity.z - 2*dotValue*normal.z};
 
 			// bounce = velocity - 2(Vector3DotProduct(velocity,normal)) * normal;
-			//SetForce(Vector3Multiply(velocity,{-2,-2,-2}));
-			SetForce({bounce.x* bouncingValue ,bounce.y* bouncingValue,bounce.z* bouncingValue });
+			//AddForce(Vector3Multiply(velocity,{-2,-2,-2}));
+			AddForce({bounce.x* bouncingValue ,bounce.y* bouncingValue,bounce.z* bouncingValue });
 			/*
 			refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt *10;
 			refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt*10;

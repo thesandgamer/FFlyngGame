@@ -19,6 +19,10 @@ void Level::Start()
     {
         element->Start();
     }
+    for each (PhysicActor * element in PhysicActors)
+    {
+        element->Start();
+    }
     for each (Ennemy * element in Ennemies)
     {
         element->Start();
@@ -65,6 +69,10 @@ void Level::Update()
     {
         element->Update();
     }
+    for each (PhysicActor * element in PhysicActors)
+    {
+        element->Update();
+    }
     for each (Ennemy * element in Ennemies)
     {
         element->Update();
@@ -106,6 +114,10 @@ void Level::Draw()
     CollisionManager::GetInstance()->Draw();
 
     for each (CubeActor * element in Terrain)
+    {
+        element->Draw();
+    }
+    for each (PhysicActor * element in PhysicActors)
     {
         element->Draw();
     }

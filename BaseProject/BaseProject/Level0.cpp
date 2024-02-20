@@ -11,9 +11,9 @@ Level0::~Level0()
 void Level0::Start()
 {
     //----------------------------
-    Level::Start();
 
 
+    
     //----------Création du terrain---------
     std::vector<CubeActor* > cubes = {
         //new CubeActor({ 0,1,0 }, { 3,2, 3 },color),
@@ -32,6 +32,8 @@ void Level0::Start()
     };
     Terrain.assign(cubes.begin(), cubes.end());
 
+    PhysicActors.push_back(new PhysicActor({10,10,10}));
+
     std::vector<Ennemy* > ennmis = {
        //new Ennemy({ 15,5,10 }, 10)
     };
@@ -45,7 +47,8 @@ void Level0::Start()
     //Terrain.push_back(new CubeActor({ 50,0,-80 }, { 10.0f, 0.5f, 15.0f }, { 239, 123, 69, 255 }));//Sol E
     Terrain.push_back(new CubeActor({ 85,0,-30 }, { 10.0f, 0.5f, 15.0f }, { 239, 123, 69, 255 }));//Sol F
     Terrain.push_back(new CubeActor({ 65,0,-30 }, { 10.0f, 0.5f, 15.0f }, { 239, 123, 69, 255 }));// Sol G
-
+    
+    Level::Start();
 
 }
 

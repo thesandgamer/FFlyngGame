@@ -6,12 +6,15 @@ class Level0 :
 {
 public:
     Level0();
-    ~Level0();
+    ~Level0() override;
 
     void Start() override;
     void Update() override;
     void Draw() override;
-    void DrawUi() override;
+    void DrawUi() override; 
+
+private:
+
 
 };
 

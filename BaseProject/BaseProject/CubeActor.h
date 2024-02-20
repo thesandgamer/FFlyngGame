@@ -12,11 +12,11 @@ public:
 	/// <param name="sizeP"></param>
 	/// <param name="colorP"></param>
 	CubeActor(Vector3 posP,Vector3 sizeP,Color colorP);
-	~CubeActor();
+	virtual ~CubeActor();
 
-	void Start();
-	void Draw();
-	void Update();
+	virtual void Start();
+	virtual void Draw();
+	virtual void Update();
 
 	Vector3* GetPos() { return &transform.translation; }
 	Vector3* GetSize() { return &transform.scale; }

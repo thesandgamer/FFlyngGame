@@ -108,6 +108,7 @@
     <ClInclude Include="GMath.hpp" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Defines.hpp" />
+    <ClInclude Include="PhysicActor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -138,9 +139,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ennemy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicBody.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IActivable.cpp">
@@ -189,5 +187,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GMath.cpp" />
+    <ClCompile Include="PhysicBody.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicActor.cpp" />
   </ItemGroup>
 </Project>

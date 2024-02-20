@@ -15,7 +15,7 @@ public:
 
 	void SetPos(Vector3* posRefP) { refPos = posRefP; }
 
-	void SetForce(Vector3 force);
+	void AddForce(Vector3 force);
 
 	bool canFall{ true };
 

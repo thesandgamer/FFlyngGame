@@ -43,5 +43,5 @@ void Projectile::Update()
 
 void Projectile::AddForce(Vector3 force)
 {
-	grav.SetForce(force);
+	grav.AddForce(force);
 }

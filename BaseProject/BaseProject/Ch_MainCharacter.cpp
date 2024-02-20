@@ -10,7 +10,7 @@ void Ch_MainCharacter::Start()
     camera.SetParent(&transf);
 
 
-    bodyCol.SetParent(&transf);
+    bodyCol.SetParent(&transf); 
     bodyCol.id = 12;
     bodyCol.checkingCollision = true;
     bodyCol.layer = Layer3;
@@ -171,7 +171,7 @@ void Ch_MainCharacter::Move()
     //------------------Va déplacer le character
    // BaseMovement(xValue, yValue);
    // AccelerationFrictionMove(xValue, yValue, zValue); //Bouge la position 
-    pb.SetForce({ xValue * maxSpeed , zValue * maxSpeed ,yValue * maxSpeed });
+    pb.AddForce({ xValue * maxSpeed , zValue * maxSpeed ,yValue * maxSpeed });
 
     transf.translation = pos;   //Bouge le transform du character 
 
@@ -205,14 +205,14 @@ void Ch_MainCharacter::Death()
 
 void Ch_MainCharacter::GoUp()
 {
-    pb.SetForce({ 0,upDownSpeed,0 });
+    pb.AddForce({ 0,upDownSpeed,0 });
 }
 
 
 
 void Ch_MainCharacter::GoDown()
 {
-    pb.SetForce({ 0,-upDownSpeed,0 });
+    pb.AddForce({ 0,-upDownSpeed,0 });
 }
 
 
@@ -221,7 +221,7 @@ void Ch_MainCharacter::Dash()
     if (canDash)
     {
         //pb.velocity = { GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce };
-        pb.SetForce({ GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce });
+        pb.AddForce({ GetForwardVector().x * dashForce,GetForwardVector().y * dashForce, GetForwardVector().z * dashForce });
        // canDash = false;
     }
 

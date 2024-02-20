@@ -16,7 +16,6 @@ P_Collision::~P_Collision()
 
 bool P_Collision::IsColliding()
 {
-
 	if (collisions.size() > 0)	//Si on à des collisions
 	{
 		for each (P_Collision* col in collisions)//Pour chaque collider avec lequel on collide
