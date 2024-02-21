@@ -30,6 +30,18 @@ void PhysicBody::AddForce(const Vector3 force)
 	acc.z = vel.z;
 }
 
+void PhysicBody::SetForce(Vector3 force)
+{
+	vel.x = force.x;
+	vel.y = force.y;
+	vel.z = force.z;
+
+
+	acc.x = vel.x;
+	acc.y = vel.y;
+	acc.z = vel.z;
+}
+
 void PhysicBody::Reset()
 {
 	acc = Vector3Zero();
@@ -44,7 +56,10 @@ void PhysicBody::Fall()
 	//refPos->z += ((dt * velocity.z) + (0.5f * acceleration * dt * dt));
 
 	//if (AnticipateCollisions::NextMoveIsColliding(colliderToCheckForCollisions, nextPos)) return;
-
+	if (canFall)
+	{
+		AddForce({ 0,-9.81f,0 });
+	}
 
 	//++ToDo: refacto pour que ça fasse un truc qui marche vraiment bien
 	//refPos = &nextPos;
@@ -76,14 +91,26 @@ void PhysicBody::ProcessVelocity()
 
 			//Calcul l'angle d'envoi
 			float dotValue = Vector3DotProduct(vel, normal);
+			Vector3 crossProduct = Vector3CrossProduct(vel, normal);
+
 
 			//Calcul le vecteur de renvoi
-			Vector3 bounce = { vel.x - 2*dotValue*normal.x,
-								vel.y - 2*dotValue*normal.y,
-								vel.z - 2*dotValue*normal.z};
+			
+			Vector3 bounce = {  vel.x - 2*(crossProduct.x *normal.x)*normal.x,
+								vel.y - 2*(crossProduct.y *normal.y)*normal.y,
+								vel.z - 2*(crossProduct.z *normal.z)*normal.z};
+			
+			Vector3 bounce2 = {  vel.x - 2 * (dotValue * normal.x),
+								vel.y - 2 * (dotValue * normal.y),
+								vel.z - 2 * (dotValue * normal.z) };
 
 			//Rajoute une force inverse au vecteur d'impact, la force du rebond dépend de boundingValue
-			AddForce({bounce.x* bouncingValue ,bounce.y* bouncingValue,bounce.z* bouncingValue });
+			AddForce({bounce.x* bouncingValue*.9f ,bounce.y* -bouncingValue*.9f,bounce.z* bouncingValue*.9f });
+			//SetForce({bounce.x* bouncingValue * .5f ,bounce.y* -bouncingValue * .5f,bounce.z* bouncingValue *.5f });
+
+			std::cout << std::endl;
+			std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
+			std::cout << "accleration: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
 		}
 		
 	}
@@ -117,13 +144,16 @@ void PhysicBody::ProcessVelocity()
 	refPos->z +=  vel.z * dt;
 	*/
 
+	/*
 	std::cout << std::endl;
 	std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
 	std::cout << "accleration: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
+	*/
 
 	acc.x = vel.x;
 	acc.y = vel.y;
 	acc.z = vel.z;
+	Fall();
 
 }
 

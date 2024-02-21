@@ -17,6 +17,7 @@ public:
 	void SetPos(Vector3* posRefP) { refPos = posRefP; }
 
 	void AddForce(Vector3 force);
+	void SetForce(Vector3 force);
 
 	void Reset();
 
