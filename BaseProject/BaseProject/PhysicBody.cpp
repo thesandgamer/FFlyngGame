@@ -1,9 +1,18 @@
 #include "PhysicBody.h"
 
+#include <string>
+
 void PhysicBody::Update()
 {
 	//Fall();
 	ProcessVelocity();
+}
+
+void PhysicBody::Draw()
+{
+	DrawRay({ *refPos,Vector3Normalize(velocity) }, 25, WHITE);
+	//DrawRay({ *refPos,{1,0,0}}, 5, WHITE);
+	//DrawSphere(*refPos, 5, WHITE);
 }
 
 void PhysicBody::AddForce(const Vector3 force)
@@ -49,11 +58,22 @@ void PhysicBody::ProcessVelocity()
 	acc.x += deccValue * vel.x;
 	acc.y += deccValue * vel.y;
 	acc.z += deccValue * vel.z;
+	/*
+	if (acc.x > 0) acc.x += deccValue * (velocity.x/100);
+	if (acc.y > 0) acc.y += deccValue * (velocity.y/100);
+	if (acc.z > 0) acc.z += deccValue * (velocity.z/100);
 
 
-	DrawRay({ *refPos,Vector3Normalize(vel) }, 50, WHITE);
+
+	acc.x = deccValue * velocity.x / sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
+	acc.y = deccValue * velocity.y / sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
+	acc.z = deccValue * velocity.z / sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
+
+	*/
 
 	
+	//Vector3CrossProduct();
+
 
 	if (colliderToCheckForCollisions != nullptr)
 	{
@@ -84,12 +104,15 @@ void PhysicBody::ProcessVelocity()
 	}
 
 
-	std::cout << "velocity: " << velocity.x << " " << velocity.y << " " << velocity.z << std::endl;
+	//std::cout << "velocity: " << velocity.x << " " << velocity.y << " " << velocity.z << std::endl;
 
 	//On repositionne avec une accélération	
 	refPos->x += dt * vel.x + 0.5f * acc.x * dt * dt ;
 	refPos->y += dt * vel.y + 0.5f * acc.y * dt * dt;
 	refPos->z += dt * vel.z + 0.5f * acc.z * dt * dt;
+
+	// déplacement au temps t = déplacement d'origine  + velocité initiale au temps t + 1/2 * acceleration * t²
+	// position += vélocité * t + 0.5* acceleration * t²
 
 
 
@@ -99,8 +122,8 @@ void PhysicBody::ProcessVelocity()
 	//Acc = accélération de l'acteur, se rapproche de 0 
 	//Vel = vélocité de l'acteur : se rapproche de la valeur max de velcité ou de 0 en fonction de si accélère ou décléère
 
-	//Quand on relache la touche, l'accération passe donc à la valeur inverse de vélocité, et va donc diminuer avec le temps
 
+	std::cout << acc.x << " " << acc.y << " " << acc.z << std::endl;
 
 	velocity.x -= dt * acc.x;
 	velocity.y -= dt * acc.y;

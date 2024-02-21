@@ -12,6 +12,7 @@ class PhysicBody
 {
 public:
 	void Update();
+	void Draw();
 
 	void SetPos(Vector3* posRefP) { refPos = posRefP; }
 
@@ -28,6 +29,8 @@ public:
 
 
 	void SetColliderForCollisionCheck(P_Collision* collider) {colliderToCheckForCollisions = collider;}
+
+	void SetBounciness(float bounciness) { bouncingValue = bounciness; }
 
 private:
 	Vector3* refPos{nullptr};

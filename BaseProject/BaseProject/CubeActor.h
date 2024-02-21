@@ -25,9 +25,11 @@ public:
 
 	Transform transform{{0,0,0},{0,0,0,0},{1,1,1}};
 
+protected:
+	BoxCollision collision{ transform.scale };
+
 
 private:
-	BoxCollision collision{ transform.scale};
 	Color color{ PURPLE };
 
 	Model cubeModel;
