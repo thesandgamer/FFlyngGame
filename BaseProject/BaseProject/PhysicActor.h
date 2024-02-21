@@ -12,10 +12,8 @@ public:
 
 	PhysicActor();
 
-	PhysicActor(const Vector3& posP, const Vector3& sizeP = { 2,2,2 }, const Color& colorP = WHITE)
-		: CubeActor(posP, sizeP, colorP)
-	{
-	}
+	PhysicActor(const Vector3& posP, const Vector3& sizeP = { 2,2,2 }, const Color& colorP = WHITE);
+
 
 	PhysicBody& GetPhysicBody() { return  pb; }
 

@@ -58,18 +58,6 @@ void PhysicBody::ProcessVelocity()
 	acc.x += deccValue * vel.x;
 	acc.y += deccValue * vel.y;
 	acc.z += deccValue * vel.z;
-	/*
-	if (acc.x > 0) acc.x += deccValue * (velocity.x/100);
-	if (acc.y > 0) acc.y += deccValue * (velocity.y/100);
-	if (acc.z > 0) acc.z += deccValue * (velocity.z/100);
-
-
-
-	acc.x = deccValue * velocity.x / sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
-	acc.y = deccValue * velocity.y / sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
-	acc.z = deccValue * velocity.z / sqrt(velocity.x * velocity.x + velocity.y * velocity.y + velocity.z * velocity.z);
-
-	*/
 
 	
 	//Vector3CrossProduct();
@@ -104,7 +92,6 @@ void PhysicBody::ProcessVelocity()
 	}
 
 
-	//std::cout << "velocity: " << velocity.x << " " << velocity.y << " " << velocity.z << std::endl;
 
 	//On repositionne avec une accélération	
 	refPos->x += dt * vel.x + 0.5f * acc.x * dt * dt ;
@@ -116,7 +103,6 @@ void PhysicBody::ProcessVelocity()
 
 
 
-	//std::cout << "acc: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
 
 
 	//Acc = accélération de l'acteur, se rapproche de 0 

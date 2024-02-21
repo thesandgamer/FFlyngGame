@@ -1,6 +1,11 @@
 #include "PhysicActor.h"
 
-PhysicActor::PhysicActor()
+PhysicActor::PhysicActor(): pb()
+{
+}
+
+PhysicActor::PhysicActor(const Vector3& posP, const Vector3& sizeP, const Color& colorP)
+	: CubeActor(posP, sizeP, colorP), pb()
 {
 }
 
