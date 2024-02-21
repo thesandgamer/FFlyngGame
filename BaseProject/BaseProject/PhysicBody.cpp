@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "Maths.h"
+
 void PhysicBody::Update()
 {
 	//Fall();
@@ -10,7 +12,7 @@ void PhysicBody::Update()
 
 void PhysicBody::Draw()
 {
-	DrawRay({ *refPos,Vector3Normalize(vel) }, 25, WHITE);
+	DrawRay({ *refPos,Vector3Normalize(vel) }, Vector3Length(vel), WHITE);
 	//DrawRay({ *refPos,{1,0,0}}, 5, WHITE);
 	//DrawSphere(*refPos, 5, WHITE);
 }
@@ -22,7 +24,6 @@ void PhysicBody::AddForce(const Vector3 force)
 	vel.y += force.y;
 	vel.z += force.z;
 
-
 	
 	acc.x = vel.x;
 	acc.y = vel.y;
@@ -31,6 +32,8 @@ void PhysicBody::AddForce(const Vector3 force)
 
 void PhysicBody::Reset()
 {
+	acc = Vector3Zero();
+	vel = Vector3Zero();
 }
 
 void PhysicBody::Fall()
@@ -57,7 +60,7 @@ void PhysicBody::ProcessVelocity()
 	
 	//Vector3CrossProduct();
 
-	/*
+	
 	if (colliderToCheckForCollisions != nullptr)
 	{
 		if (colliderToCheckForCollisions->IsColliding())	//ToDo: il faudrait un check collision at next tick
@@ -67,11 +70,11 @@ void PhysicBody::ProcessVelocity()
 
 
 
-			float dotValue = Vector3DotProduct(velocity, normal);
+			float dotValue = Vector3DotProduct(vel, normal);
 
-			Vector3 bounce = {velocity.x - 2*dotValue*normal.x,
-								velocity.y - 2*dotValue*normal.y,
-								velocity.z - 2*dotValue*normal.z};
+			Vector3 bounce = { vel.x - 2*dotValue*normal.x,
+								vel.y - 2*dotValue*normal.y,
+								vel.z - 2*dotValue*normal.z};
 
 			// bounce = velocity - 2(Vector3DotProduct(velocity,normal)) * normal;
 			//AddForce(Vector3Multiply(velocity,{-2,-2,-2}));
@@ -85,7 +88,7 @@ void PhysicBody::ProcessVelocity()
 			//return;
 		}
 		
-	}*/
+	}
 
 	/*
 	acc.x = -friction * (vel.x);
@@ -93,6 +96,10 @@ void PhysicBody::ProcessVelocity()
 	acc.z = -friction * (vel.z);
 	*/
 	
+
+	//ToDo:Vérif si la valeur accleration est trop basse on fait plus les calculs
+	//if (Maths::nearZero(acc.x))
+		
 
 	refPos->x +=  acc.x * dt * dt ;
 	refPos->y +=  acc.y * dt * dt;
