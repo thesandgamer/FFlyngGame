@@ -199,7 +199,7 @@ Vector3 Ch_MainCharacter::GetVector(Vector3 dir)
 void Ch_MainCharacter::Death()
 {
     SetPos({ 4,20,4 });
-    pb.velocity = { 0,0,0 };
+    pb.Reset();
 }
 
 

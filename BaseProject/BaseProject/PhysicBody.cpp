@@ -10,22 +10,30 @@ void PhysicBody::Update()
 
 void PhysicBody::Draw()
 {
-	DrawRay({ *refPos,Vector3Normalize(velocity) }, 25, WHITE);
+	//DrawRay({ *refPos,Vector3Normalize(velocity) }, 25, WHITE);
 	//DrawRay({ *refPos,{1,0,0}}, 5, WHITE);
 	//DrawSphere(*refPos, 5, WHITE);
 }
 
 void PhysicBody::AddForce(const Vector3 force)
 {
-	velocity.x += force.x;
-	velocity.y += force.y;
-	velocity.z += force.z;
+	/*
+	acc.x += force.x;
+	acc.y += force.y;
+	acc.z += force.z;*/
+
+	vel.x += force.x;
+	vel.y += force.y;
+	vel.z += force.z;
 
 
-	acc.x = velocity.x;
-	acc.y = velocity.y;
-	acc.z = velocity.z;
-	
+	acc.x = vel.x;
+	acc.y = vel.y;
+	acc.z = vel.z;
+}
+
+void PhysicBody::Reset()
+{
 }
 
 void PhysicBody::Fall()
@@ -33,14 +41,13 @@ void PhysicBody::Fall()
 	const float dt = GetFrameTime();
 
 
-	refPos->z += ((dt * velocity.z) + (0.5f * acceleration * dt * dt));
+	//refPos->z += ((dt * velocity.z) + (0.5f * acceleration * dt * dt));
 
 	//if (AnticipateCollisions::NextMoveIsColliding(colliderToCheckForCollisions, nextPos)) return;
 
 
 	//++ToDo: refacto pour que ça fasse un truc qui marche vraiment bien
 	//refPos = &nextPos;
-	
 
 
 
@@ -50,19 +57,10 @@ void PhysicBody::ProcessVelocity()
 {
 	float dt = GetFrameTime();
 
-
-	//On défnit les valeur maxes
-
-	//Fricction : on réduit l'accélération
-
-	acc.x += deccValue * vel.x;
-	acc.y += deccValue * vel.y;
-	acc.z += deccValue * vel.z;
-
 	
 	//Vector3CrossProduct();
 
-
+	/*
 	if (colliderToCheckForCollisions != nullptr)
 	{
 		if (colliderToCheckForCollisions->IsColliding())	//ToDo: il faudrait un check collision at next tick
@@ -81,44 +79,51 @@ void PhysicBody::ProcessVelocity()
 			// bounce = velocity - 2(Vector3DotProduct(velocity,normal)) * normal;
 			//AddForce(Vector3Multiply(velocity,{-2,-2,-2}));
 			AddForce({bounce.x* bouncingValue ,bounce.y* bouncingValue,bounce.z* bouncingValue });
-			/*
-			refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt *10;
-			refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt*10;
-			refPos->y -= dt * vel.z + 0.5f * acc.z * dt * dt*10;
-			*/
+
+			
+			//refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt *10;
+			//refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt*10;
+			//refPos->y -= dt * vel.z + 0.5f * acc.z * dt * dt*10;
+			
 			//return;
 		}
 		
-	}
+	}*/
 
 
-
-	//On repositionne avec une accélération	
-	refPos->x += dt * vel.x + 0.5f * acc.x * dt * dt ;
-	refPos->y += dt * vel.y + 0.5f * acc.y * dt * dt;
-	refPos->z += dt * vel.z + 0.5f * acc.z * dt * dt;
-
-	// déplacement au temps t = déplacement d'origine  + velocité initiale au temps t + 1/2 * acceleration * t²
-	// position += vélocité * t + 0.5* acceleration * t²
+	/*
+	acc.x += friction * vel.x;
+	acc.y += friction * vel.y;
+	acc.z += friction * vel.z;*/
 
 
+	refPos->x +=  0.5f * acc.x * dt * dt;
+	refPos->y +=  0.5f * acc.y * dt * dt;
+	refPos->z +=  0.5f * acc.z * dt * dt;
 
+	vel.x -= dt * acc.x;
+	vel.y -= dt * acc.y;
+	vel.z -= dt * acc.z;
 
+	/*
+	float magnitude = sqrt(vel.x * vel.x + vel.y * vel.y + vel.z * vel.z);
+	//L'acclération diminue due à la friction
+	acc.x += ((friction / accValue) * vel.x);
+	acc.y += ((friction / accValue) * vel.y);
+	acc.z += ((friction / accValue) * vel.z);
 
-	//Acc = accélération de l'acteur, se rapproche de 0 
-	//Vel = vélocité de l'acteur : se rapproche de la valeur max de velcité ou de 0 en fonction de si accélère ou décléère
+	
+	vel.x += acc.x * dt;
+	vel.y += acc.y * dt;
+	vel.z += acc.z * dt;
 
+	refPos->x +=  vel.x * dt;
+	refPos->y +=  vel.y * dt;
+	refPos->z +=  vel.z * dt;
+	*/
 
-	std::cout << acc.x << " " << acc.y << " " << acc.z << std::endl;
+	std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
 
-	velocity.x -= dt * acc.x;
-	velocity.y -= dt * acc.y;
-	velocity.z -= dt * acc.z;
-
-	//std::cout << "velocity: " << velocity.x << " " << velocity.y << " " << velocity.z << std::endl;
-
-
-	//acc = { 0,0 ,0 };
 }
 
 

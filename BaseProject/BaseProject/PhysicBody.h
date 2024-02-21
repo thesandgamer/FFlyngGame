@@ -18,12 +18,12 @@ public:
 
 	void AddForce(Vector3 force);
 
+	void Reset();
+
 	bool canFall{ true };
 
-	float acceleration{ 100 };
-	float deccValue{ -2 };
-	float accValue{ .5 };
-	Vector3 velocity{ 0,0,0 };	//Vers où se dirige le Body
+	float friction{ -2 };
+	float accValue{ 1 };
 	Vector3 acc{ 0,0,0 };	//Acceleration du body
 	Vector3 vel{ 0,0 ,0 };
 
