@@ -60,11 +60,17 @@ void PhysicBody::ProcessVelocity()
 	
 	//Vector3CrossProduct();
 
-	
+	//ToDo: Futur position: vérifier la collision au tick suivant, c'est à dire effectuer le déplacement de la collision à sa postion au tick suivant
+	// ensuite vérifier si il y a collision avec d'autres collisions, si non attend le check des autres puis effectue son déplacement,
+	// par contre si collision on ne déplace pas l'acteur à la position finale mais à la position de l'impact moins la taille de la collision(comment faire ça je sais pas)
+	// Long collision: si la boite se déplace très loin on va faire un raycast et replacer à la position de l'impact moins la taille de la collision
+
 	if (colliderToCheckForCollisions != nullptr)
 	{
 		if (colliderToCheckForCollisions->IsColliding())	//ToDo: il faudrait un check collision at next tick
 		{
+			//ToDo: clean la partie rebond
+
 			//Calcul de la normal de l'objet collisioné 
 			Vector3 normal = colliderToCheckForCollisions->GetNormalOfCollidingObjects();
 
