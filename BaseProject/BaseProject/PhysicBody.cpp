@@ -65,37 +65,22 @@ void PhysicBody::ProcessVelocity()
 	{
 		if (colliderToCheckForCollisions->IsColliding())	//ToDo: il faudrait un check collision at next tick
 		{
-			//ToDo: récupérer la normal de l'impact, le comparer avec la velocité avec un dot product, et appliquer une force inverse en fonction
+			//Calcul de la normal de l'objet collisioné 
 			Vector3 normal = colliderToCheckForCollisions->GetNormalOfCollidingObjects();
 
-
-
+			//Calcul l'angle d'envoi
 			float dotValue = Vector3DotProduct(vel, normal);
 
+			//Calcul le vecteur de renvoi
 			Vector3 bounce = { vel.x - 2*dotValue*normal.x,
 								vel.y - 2*dotValue*normal.y,
 								vel.z - 2*dotValue*normal.z};
 
-			// bounce = velocity - 2(Vector3DotProduct(velocity,normal)) * normal;
-			//AddForce(Vector3Multiply(velocity,{-2,-2,-2}));
+			//Rajoute une force inverse au vecteur d'impact, la force du rebond dépend de boundingValue
 			AddForce({bounce.x* bouncingValue ,bounce.y* bouncingValue,bounce.z* bouncingValue });
-
-			
-			//refPos->x -= dt * vel.x + 0.5f * acc.x * dt * dt *10;
-			//refPos->z -= dt * vel.y + 0.5f * acc.y * dt * dt*10;
-			//refPos->y -= dt * vel.z + 0.5f * acc.z * dt * dt*10;
-			
-			//return;
 		}
 		
 	}
-
-	/*
-	acc.x = -friction * (vel.x);
-	acc.y = -friction * (vel.y);
-	acc.z = -friction * (vel.z);
-	*/
-	
 
 	//ToDo:Vérif si la valeur accleration est trop basse on fait plus les calculs
 	//if (Maths::nearZero(acc.x))
