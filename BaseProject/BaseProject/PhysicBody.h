@@ -22,7 +22,7 @@ public:
 
 	bool canFall{ true };
 
-	float friction{ -.1 };
+	float friction{ 1 };
 	float accValue{ 1 };
 	Vector3 acc{ 0,0,0 };	//Acceleration du body
 	Vector3 vel{ 0,0 ,0 };

@@ -90,9 +90,9 @@ void PhysicBody::ProcessVelocity()
 	refPos->y +=  acc.y * dt * dt;
 	refPos->z +=  acc.z * dt * dt;
 
-	vel.x -= dt * acc.x;
-	vel.y -= dt * acc.y;
-	vel.z -= dt * acc.z;
+	vel.x -= dt * acc.x * friction;
+	vel.y -= dt * acc.y * friction;
+	vel.z -= dt * acc.z * friction;
 
 	/*
 	float magnitude = sqrt(vel.x * vel.x + vel.y * vel.y + vel.z * vel.z);

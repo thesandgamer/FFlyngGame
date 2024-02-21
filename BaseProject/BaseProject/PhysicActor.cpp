@@ -23,7 +23,7 @@ void PhysicActor::Start()
 	pb.SetColliderForCollisionCheck(GetCollision());//Set la boite de collision pour le check des cols de la gravité
 	pb.SetBounciness(1);
 
-	pb.AddForce({ -500,0 ,0});
+	pb.AddForce({ 0,-700 ,0});
 
 }
 

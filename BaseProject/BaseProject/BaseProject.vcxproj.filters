@@ -27,22 +27,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Ch_MainCharacter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CubeActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EndPortal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ennemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IActivable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Interuptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level0.h">
@@ -58,9 +46,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Projectile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Trigger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Level.h">
@@ -109,6 +94,21 @@
     <ClInclude Include="Maths.h" />
     <ClInclude Include="Defines.hpp" />
     <ClInclude Include="PhysicActor.h" />
+    <ClInclude Include="Ch_MainCharacter.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EndPortal.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Ennemy.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Interuptor.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Trigger.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">

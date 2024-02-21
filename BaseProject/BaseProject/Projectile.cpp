@@ -18,7 +18,9 @@ Projectile::~Projectile()
 
 void Projectile::Start()
 {
-	grav.SetPos(&transform.translation);
+	pb.SetPos(&transform.translation);
+	pb.SetBounciness(1);
+	pb.friction = 0;
 
 	collider.SetParent(&transform);
 	collider.checkingCollision = true;
@@ -32,7 +34,7 @@ void Projectile::Draw()
 
 void Projectile::Update()
 {
-	grav.Update();
+	pb.Update();
 
 	if (collider.IsColliding())
 	{
@@ -41,7 +43,10 @@ void Projectile::Update()
 	}
 }
 
+std::shared_ptr<BoxCollision> Projectile::GetCollider()
+{ return std::make_shared<BoxCollision>(collider); }
+
 void Projectile::AddForce(Vector3 force)
 {
-	grav.AddForce(force);
+	pb.AddForce(force);
 }
