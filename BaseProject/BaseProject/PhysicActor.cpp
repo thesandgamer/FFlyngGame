@@ -26,7 +26,7 @@ void PhysicActor::Start()
 	pb.canFall = true;
 
 	//pb.AddForce({ 0,-500 ,0});
-	pb.AddForce({ 0,0 ,0 });
+	pb.AddForce({ -100,0 ,0 });
 
 
 }
