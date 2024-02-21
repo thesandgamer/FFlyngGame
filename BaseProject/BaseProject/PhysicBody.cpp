@@ -10,23 +10,20 @@ void PhysicBody::Update()
 
 void PhysicBody::Draw()
 {
-	//DrawRay({ *refPos,Vector3Normalize(velocity) }, 25, WHITE);
+	DrawRay({ *refPos,Vector3Normalize(vel) }, 25, WHITE);
 	//DrawRay({ *refPos,{1,0,0}}, 5, WHITE);
 	//DrawSphere(*refPos, 5, WHITE);
 }
 
 void PhysicBody::AddForce(const Vector3 force)
 {
-	/*
-	acc.x += force.x;
-	acc.y += force.y;
-	acc.z += force.z;*/
 
 	vel.x += force.x;
 	vel.y += force.y;
 	vel.z += force.z;
 
 
+	
 	acc.x = vel.x;
 	acc.y = vel.y;
 	acc.z = vel.z;
@@ -90,16 +87,16 @@ void PhysicBody::ProcessVelocity()
 		
 	}*/
 
-
 	/*
-	acc.x += friction * vel.x;
-	acc.y += friction * vel.y;
-	acc.z += friction * vel.z;*/
+	acc.x = -friction * (vel.x);
+	acc.y = -friction * (vel.y);
+	acc.z = -friction * (vel.z);
+	*/
+	
 
-
-	refPos->x +=  0.5f * acc.x * dt * dt;
-	refPos->y +=  0.5f * acc.y * dt * dt;
-	refPos->z +=  0.5f * acc.z * dt * dt;
+	refPos->x +=  acc.x * dt * dt ;
+	refPos->y +=  acc.y * dt * dt;
+	refPos->z +=  acc.z * dt * dt;
 
 	vel.x -= dt * acc.x;
 	vel.y -= dt * acc.y;
@@ -122,7 +119,13 @@ void PhysicBody::ProcessVelocity()
 	refPos->z +=  vel.z * dt;
 	*/
 
+	std::cout << std::endl;
 	std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
+	std::cout << "accleration: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
+
+	acc.x = vel.x;
+	acc.y = vel.y;
+	acc.z = vel.z;
 
 }
 
