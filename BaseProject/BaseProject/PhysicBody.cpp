@@ -104,6 +104,7 @@ void PhysicBody::ProcessVelocity()
 								vel.y - 2 * (dotValue * normal.y),
 								vel.z - 2 * (dotValue * normal.z) };
 
+			//ToDo: il faut que le rebond ai moins de force qu'a l'impact
 			//Rajoute une force inverse au vecteur d'impact, la force du rebond dépend de boundingValue
 			AddForce({bounce.x* bouncingValue*.9f ,bounce.y* -bouncingValue*.9f,bounce.z* bouncingValue*.9f });
 			//SetForce({bounce.x* bouncingValue * .5f ,bounce.y* -bouncingValue * .5f,bounce.z* bouncingValue *.5f });
