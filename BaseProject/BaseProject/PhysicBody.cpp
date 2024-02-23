@@ -114,7 +114,7 @@ void PhysicBody::ProcessVelocity()
 			//AddForce({bounce.x* bouncingValue*.9f ,bounce.y* -bouncingValue*.9f,bounce.z* bouncingValue*.9f });
 
 			//SetForce({bounce.x* bouncingValue  ,bounce.y* -bouncingValue,bounce.z* bouncingValue  });
-			SetForce({bounce.x* bouncingValue * .9f  ,bounce.y* -bouncingValue * .9f,bounce.z* bouncingValue * .9f });
+			SetForce({bounce.x* -bouncingValue * .9f  ,bounce.y* -bouncingValue * .9f,bounce.z* bouncingValue * .9f });
 
 			std::cout << "After impact " <<std::endl;
 			std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;

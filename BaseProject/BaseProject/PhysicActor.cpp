@@ -25,8 +25,8 @@ void PhysicActor::Start()
 	pb.friction = 0;
 	//pb.canFall = true;
 
-	//pb.AddForce({ -200,0 ,0 });
-	pb.AddForce({ 0,-200 ,0 });
+	pb.AddForce({ -200,0 ,0 });
+	//pb.AddForce({ 0,-200 ,0 });
 
 
 }
