@@ -18,9 +18,13 @@ void Ch_MainCharacter::Start()
 
     camera.Start();
 
-    pb.canFall = false;
     pb.SetPos(&pos);
     pb.SetColliderForCollisionCheck(&bodyCol);//Set la boite de collision pour le check des cols de la gravité
+    pb.canFall = false;
+    pb.SetBounciness(2);
+    pb.friction = 2;
+    pb.elasticity = .9f;
+
 
 
     shootingComponent.Start();

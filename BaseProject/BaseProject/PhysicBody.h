@@ -23,8 +23,11 @@ public:
 
 	bool canFall{ true };
 
+	/**\ brief A quel point l'objet est ralenti pendant son mouvement  */
 	float friction{ 1 };
 	float accValue{ 1 };
+	/**\ brief A quel point l'objet perd en vitesse quand il collide */
+	float elasticity{ .9f };
 	Vector3 acc{ 0,0,0 };	//Acceleration du body
 	Vector3 vel{ 0,0 ,0 };
 

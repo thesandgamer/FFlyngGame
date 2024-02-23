@@ -17,7 +17,10 @@ void Level0::Start()
     //----------Création du terrain---------
     std::vector<CubeActor* > cubes = {
         new CubeActor({ -34,0,0 }, { 10,64, 64 }, { 138, 103, 34, 255 }),
-        new CubeActor({ 34,0,0 }, { 10,64, 64 }, { 0, 0, 244, 255 }),
+        new CubeActor({ 34,0,0 }, { 10,64, 64 },  { 138, 103, 34, 255 }),
+
+        new CubeActor({ 0,0,-34 }, { 64,64, 10 }, { 0, 0, 244, 255 }),
+        new CubeActor({ 0,0,34 }, { 64,64, 10 },  { 0, 0, 244, 255 }),
     };
     Terrain.assign(cubes.begin(), cubes.end());
 
