@@ -53,13 +53,12 @@ void LevelCreator::Update()
 ;				 info = GetRayCollisionBox(ray, dynamic_cast<BoxCollision*>(col)->GetBoundingBox());
 				 if (info.hit)
 				 {
-					 DrawSphere(info.position, 10, GREEN);
 					 break;
 				 }
 			}
 		}
 
-		Vector3 putPos= {};
+	
 
 		if(info.hit)
 		{
@@ -82,9 +81,13 @@ void LevelCreator::Update()
 
 		}
 		//Transforme la position en position grille
-		putPos = { std::round(putPos.x / boxSize.x) * boxSize.x,std::round(putPos.y / boxSize.y) * boxSize.y,std::round(putPos.z / boxSize.z) * boxSize.z };
+		//Il va falloir arrondir
+		putPos = {   (putPos.x / boxSize.x) * boxSize.x,
+						(putPos.y / boxSize.y) * boxSize.y,
+						(putPos.z / boxSize.z) * boxSize.z };
 
-		AddWallAt(putPos);
+
+		//AddWallAt(putPos);
 	}
 
 	if (IsMouseButtonPressed(1))
@@ -104,6 +107,13 @@ void LevelCreator::Update()
 			}
 		}
 	}
+}
+
+void LevelCreator::Draw()
+{
+	Level::Draw();
+	DrawSphere(putPos, 3, GREEN);
+
 }
 
 void LevelCreator::AddWallAt(Vector3 pos)

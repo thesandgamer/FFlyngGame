@@ -7,6 +7,7 @@ class LevelCreator final :
 public:
 	void Start() override;
 	void Update() override;
+	void Draw() override;
 
 private:
 	Vector3 boxSize { 10,10,10 };
@@ -14,6 +15,8 @@ private:
 	Vector3 origin { 0,0,0 };
 
 	void AddWallAt(Vector3 pos);
+
+	Vector3 putPos {};
 
 };
 
