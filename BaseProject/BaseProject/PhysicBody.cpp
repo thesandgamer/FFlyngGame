@@ -86,6 +86,11 @@ void PhysicBody::ProcessVelocity()
 		{
 			//ToDo: clean la partie rebond
 
+
+			std::cout << "Before impact " << std::endl;
+			std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
+			std::cout << "accleration: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
+
 			//Calcul de la normal de l'objet collisioné 
 			Vector3 normal = colliderToCheckForCollisions->GetNormalOfCollidingObjects();
 
@@ -111,7 +116,7 @@ void PhysicBody::ProcessVelocity()
 			//SetForce({bounce.x* bouncingValue  ,bounce.y* -bouncingValue,bounce.z* bouncingValue  });
 			SetForce({bounce.x* bouncingValue * .9f  ,bounce.y* -bouncingValue * .9f,bounce.z* bouncingValue * .9f });
 
-			std::cout << std::endl;
+			std::cout << "After impact " <<std::endl;
 			std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
 			std::cout << "accleration: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
 		}
