@@ -38,7 +38,7 @@ class P_Collision
 {
 public:
 	P_Collision();
-	~P_Collision();
+	virtual ~P_Collision();
 
 	CollisionType collisionType{ BoxCollider };
 	bool trigger{false};
