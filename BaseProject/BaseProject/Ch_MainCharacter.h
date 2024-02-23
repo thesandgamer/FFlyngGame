@@ -84,10 +84,10 @@ private:
 	Vector3 vel{ 0,0 ,0};
 
 
-	const float maxSpeed{20};
-	const float upDownSpeed{10};
-	const float acceleration{0};
-	const float deceleration{-2};
+	/**\brief Vitesse de déplacement */
+	float maxSpeed{60};
+	/**\brief Vitesse de déplacement en Vertical seulement */
+	float upDownSpeed{20};
 
 
 	//---------For shoot ----------
@@ -100,7 +100,7 @@ private:
 	//-----------Dash----------
 
 	void Dash();
-	float dashForce{ 350 };
+	float dashForce{ 1500 };
 	bool canDash{ true };
 
 
