@@ -183,6 +183,7 @@
     <ClInclude Include="EndPortal.h" />
     <ClInclude Include="Ennemy.h" />
     <ClInclude Include="GMath.hpp" />
+    <ClInclude Include="LevelCreator.h" />
     <ClInclude Include="PhysicActor.h" />
     <ClInclude Include="PhysicBody.h" />
     <ClInclude Include="IActivable.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="EndPortal.cpp" />
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="GMath.cpp" />
+    <ClCompile Include="LevelCreator.cpp" />
     <ClCompile Include="PhysicActor.cpp" />
     <ClCompile Include="PhysicBody.cpp" />
     <ClCompile Include="IActivable.cpp" />

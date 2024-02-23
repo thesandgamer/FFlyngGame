@@ -10,6 +10,10 @@ SphereCollision::SphereCollision(float radius) : P_Collision()
     rad = radius;
 }
 
+SphereCollision::SphereCollision(Vector3 pos, float radius) : P_Collision()
+{
+}
+
 void SphereCollision::Draw()
 {
     if (trigger)

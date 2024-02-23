@@ -13,6 +13,7 @@ class SphereCollision :
 public:
 	SphereCollision();
 	SphereCollision(float radius);
+	SphereCollision(Vector3 pos, float radius);
 
 	void Draw();
 

@@ -8,6 +8,7 @@ class RaycastCollision :
 public:
     RaycastCollision();
     RaycastCollision(Vector3 directionP, float lengthP);
+    RaycastCollision(Vector3 pos, Vector3 directionP, float lengthP);
     ~RaycastCollision();
 
     void Draw();

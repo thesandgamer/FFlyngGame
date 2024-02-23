@@ -1,0 +1,18 @@
+
+Grille 3d:
+Cases vides
+Cases Murs: cube de 1x1 
+Cases départ : là où va spawn le joueur
+Case Ennemi: là où va spawn un ennemi
+
+
+Rajouter Mesh actor
+	Rajouter Wall Actor: mesh de base 
+
+Wall actor: autotiling pour changer le mesh
+
+
+///////--------------
+Map editor qu'on va jouer, où on va pouvoir placer les types d'objets dans la grille, on va pouvoir exporter fichier level 
+
+Création map procédurale

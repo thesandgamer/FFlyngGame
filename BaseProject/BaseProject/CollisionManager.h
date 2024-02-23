@@ -37,6 +37,8 @@ public:
 	 void AddCollider(P_Collision* collider);
 	 void RemoveCollider(P_Collision* colliderToRemove);
 
+	std::vector<P_Collision*> GetColliders() { return colliders; }
+
 
 private:
 

@@ -10,6 +10,12 @@ RaycastCollision::RaycastCollision(Vector3 directionP, float lengthP) :P_Collisi
     collisionType = RayCollider;
 }
 
+RaycastCollision::RaycastCollision(Vector3 pos, Vector3 directionP, float lengthP) :P_Collision(), direction(directionP), length{ lengthP }
+{
+    transform->translation = pos;
+    collisionType = RayCollider;
+}
+
 RaycastCollision::~RaycastCollision()
 {
 }

@@ -1,19 +1,11 @@
 #pragma once
 #include "Level.h"
 
-class Level0 :
+class Level0 final :
     public Level
 {
 public:
-    Level0();
-    ~Level0() override;
-
     void Start() override;
-    void Update() override;
-    void Draw() override;
-    void DrawUi() override; 
-
-private:
 
 
 };

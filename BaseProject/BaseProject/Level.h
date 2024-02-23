@@ -21,8 +21,8 @@
 class Level
 {
 public:
-	Level() {};
-	virtual ~Level() {};
+	Level() = default;
+	virtual ~Level() = default;
 	virtual void Start() ;
 	virtual void Update() ;
 	virtual void Draw() ;
@@ -45,7 +45,7 @@ protected:
 	std::vector<PhysicActor*> PhysicActors; 
 
 
-	Light lights[MAX_LIGHTS] = { 0 };
+	Light lights[MAX_LIGHTS] = {{0}};
 
 	//CubeActor* deathzone;
 

@@ -51,6 +51,8 @@ void Ch_MainCharacter::DrawUi()
         {(float)screenWidth / 2 ,
         (float)screenHeight / 2  },
         0, 0.02f, WHITE);
+
+    DrawFPS(20,20);
     
 }
 

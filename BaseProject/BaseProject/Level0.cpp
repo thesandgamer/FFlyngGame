@@ -1,12 +1,5 @@
 #include "Level0.h"
 
-Level0::Level0()
-{
-}
-
-Level0::~Level0()
-{
-}
 
 void Level0::Start()
 {
@@ -37,17 +30,3 @@ void Level0::Start()
 
 }
 
-void Level0::Update()
-{
-    Level::Update();
-}
-
-void Level0::Draw()
-{
-    Level::Draw();
-}
-
-void Level0::DrawUi()
-{
-    Level::DrawUi();
-}

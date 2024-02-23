@@ -47,6 +47,8 @@ public:
 
 	void Death();
 
+	Vector3 GetForwardVector();
+	
 private:
 	//----------COmponenets---------
 	//++ToDo: vector de component parent
@@ -83,7 +85,6 @@ private:
 
 	//---------For shoot ----------
 
-	Vector3 GetForwardVector();
 	Vector3 GetVector(Vector3 dir);
 
 	AC_Shoot shootingComponent{1,Layer4};
