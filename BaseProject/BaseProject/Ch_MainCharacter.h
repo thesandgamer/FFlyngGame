@@ -41,7 +41,7 @@ public:
 
 	Transform transf{ {0,0,0},{0,0,0,0},{1,1,1} };
 	
-	bool IsGrounded() { return isGrounded; }
+	bool IsGrounded() const { return isGrounded; }
 
 	void SetPos(Vector3 newPos) { pos = newPos; }
 
@@ -49,7 +49,7 @@ public:
 
 private:
 	//----------COmponenets---------
-	//++ToDo: vector de component parent*
+	//++ToDo: vector de component parent
 	AC_FirstPersonCamera camera{};
 
 	//----
@@ -59,19 +59,13 @@ private:
 	//----------- Transform ------------
 
 	Vector3 pos{4,20,4};
-	Vector3 forwardVector{ 1,0,0 };
 
 	//----GoUp ---------
 	void GoUp();
 	void GoDown();
 
-	float jumpVelocity = 8;
-	float fallMultiplier = 3.5f;
-	float lowJumpMultiplier = 2.0f;
-
 	bool isGrounded{ false };
 
-	float airControl{ 0.1f };
 
 	//-----For movement
 	void Move();
@@ -79,9 +73,6 @@ private:
 
 	bool dir[4]{0,0,0,0};
 	Vector3 direction{0,0,0};
-	float actualSpeed{0};
-	Vector3 acc{ 0,0 ,0};
-	Vector3 vel{ 0,0 ,0};
 
 
 	/**\brief Vitesse de déplacement */
