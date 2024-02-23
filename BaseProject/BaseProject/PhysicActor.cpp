@@ -21,11 +21,10 @@ void PhysicActor::Start()
 	pb.canFall = false;
 	pb.SetPos(&transform.translation);
 	pb.SetColliderForCollisionCheck(GetCollision());//Set la boite de collision pour le check des cols de la gravité
-	pb.SetBounciness(2);
+	pb.SetBounciness(1);
 	pb.friction = 0;
 	pb.canFall = true;
 
-	//pb.AddForce({ 0,-500 ,0});
 	pb.AddForce({ -100,0 ,0 });
 
 

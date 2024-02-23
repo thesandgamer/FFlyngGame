@@ -31,6 +31,10 @@ public:
 
 	void SetColliderForCollisionCheck(P_Collision* collider) {colliderToCheckForCollisions = collider;}
 
+	/**
+	 * \brief Set à quel point l'objet va rebondir
+	 * \param bounciness A quel point l'objet va rebondir, à 0 pas de rebond
+	 */
 	void SetBounciness(float bounciness) { bouncingValue = bounciness; }
 
 private:
@@ -39,7 +43,7 @@ private:
 	void Fall();
 	void ProcessVelocity();
 
-	float bouncingValue {2};
+	float bouncingValue {1};
 
 	P_Collision* colliderToCheckForCollisions ;
 

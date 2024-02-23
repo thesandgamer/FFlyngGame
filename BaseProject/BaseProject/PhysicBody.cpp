@@ -106,8 +106,10 @@ void PhysicBody::ProcessVelocity()
 
 			//ToDo: il faut que le rebond ai moins de force qu'a l'impact
 			//Rajoute une force inverse au vecteur d'impact, la force du rebond dépend de boundingValue
-			AddForce({bounce.x* bouncingValue*.9f ,bounce.y* -bouncingValue*.9f,bounce.z* bouncingValue*.9f });
-			//SetForce({bounce.x* bouncingValue * .5f ,bounce.y* -bouncingValue * .5f,bounce.z* bouncingValue *.5f });
+			//AddForce({bounce.x* bouncingValue*.9f ,bounce.y* -bouncingValue*.9f,bounce.z* bouncingValue*.9f });
+
+			//SetForce({bounce.x* bouncingValue  ,bounce.y* -bouncingValue,bounce.z* bouncingValue  });
+			SetForce({bounce.x* bouncingValue * .9f  ,bounce.y* -bouncingValue * .9f,bounce.z* bouncingValue * .9f });
 
 			std::cout << std::endl;
 			std::cout << "velocity: " << vel.x << " " << vel.y << " " << vel.z << std::endl;
@@ -117,17 +119,61 @@ void PhysicBody::ProcessVelocity()
 	}
 
 	//ToDo:Vérif si la valeur accleration est trop basse on fait plus les calculs
-	//if (Maths::nearZero(acc.x))
-		
 
-	refPos->x +=  acc.x * dt * dt ;
+
+
+	refPos->x +=  acc.x * dt * dt;
 	refPos->y +=  acc.y * dt * dt;
 	refPos->z +=  acc.z * dt * dt;
+	Fall();
+
 
 	vel.x -= dt * acc.x * friction;
 	vel.y -= dt * acc.y * friction;
 	vel.z -= dt * acc.z * friction;
 
+	acc.x = vel.x;
+	acc.y = vel.y;
+	acc.z = vel.z;
+
+	/*
+	if (!Maths::nearZero(acc.x))
+	{
+		refPos->x += acc.x * dt * dt;
+		vel.x -= dt * acc.x * friction;
+		acc.x = vel.x;
+
+	}
+	else
+	{
+		vel.x = 0;
+		acc.x = 0;
+	}
+	if (!Maths::nearZero(acc.y))
+	{
+		refPos->y += acc.y * dt * dt;
+		vel.y -= dt * acc.y * friction;
+		acc.y = vel.y;
+
+	}
+	else
+	{
+		vel.y = 0;
+		acc.y = 0;
+	}
+	if (!Maths::nearZero(acc.z))
+	{
+		refPos->z += acc.z * dt * dt;
+		vel.z -= dt * acc.z * friction;
+		acc.z = vel.z;
+
+	}
+	else
+	{
+		vel.z = 0;
+		acc.z = 0;
+	}
+	*/
 	/*
 	float magnitude = sqrt(vel.x * vel.x + vel.y * vel.y + vel.z * vel.z);
 	//L'acclération diminue due à la friction
@@ -151,10 +197,7 @@ void PhysicBody::ProcessVelocity()
 	std::cout << "accleration: " << acc.x << " " << acc.y << " " << acc.z << std::endl;
 	*/
 
-	acc.x = vel.x;
-	acc.y = vel.y;
-	acc.z = vel.z;
-	Fall();
+
 
 }
 
