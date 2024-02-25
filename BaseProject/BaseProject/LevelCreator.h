@@ -9,6 +9,8 @@ public:
 	void Update() override;
 	void Draw() override;
 
+	void CalculateWherePosActor();
+
 private:
 	Vector3 boxSize { 10,10,10 };
 	Color wallColor { 239, 123, 69, 255 };
