@@ -141,11 +141,11 @@ void Ch_MainCharacter::ProcessInputs()
 
     if (IsMouseButtonDown(0))
     {  
-      //  shootingComponent.Shoot(pos, Vector3Multiply(GetForwardVector(),{1,1,1}),3500);
+       shootingComponent.Shoot(pos, Vector3Multiply(GetForwardVector(),{1,1,1}),3500);
     }
     if (IsMouseButtonPressed(1))
     {
-       // Dash();
+       Dash();
     }
 }
 

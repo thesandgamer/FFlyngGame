@@ -80,7 +80,7 @@ private:
 	/**\brief Vitesse de déplacement */
 	float maxSpeed{60};
 	/**\brief Vitesse de déplacement en Vertical seulement */
-	float upDownSpeed{20};
+	float upDownSpeed{30};
 
 
 	//---------For shoot ----------
