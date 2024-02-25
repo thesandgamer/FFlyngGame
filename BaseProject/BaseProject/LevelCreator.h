@@ -17,6 +17,9 @@ private:
 	void AddWallAt(Vector3 pos);
 
 	Vector3 putPos {};
+	Ray ray{};
+	RayHitInfo hitInfo {};
+
 
 };
 

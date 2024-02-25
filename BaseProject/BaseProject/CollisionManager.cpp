@@ -15,7 +15,8 @@ void CollisionManager::Draw()
 
 void CollisionManager::AddCollider(P_Collision* collider)
 {
-	 colliders.push_back(collider);
+	colliders.push_back(collider);
+	//colliders.emplace(colliders.begin(), collider);
 }
 
 void CollisionManager::RemoveCollider(P_Collision* colliderToRemove)

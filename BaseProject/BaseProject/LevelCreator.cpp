@@ -44,8 +44,14 @@ void LevelCreator::Update()
 	{
 		//ToDo: il va falloir faire en sorte que si un bloc est déjà présent n'en place pas un nouveau
 		Ray ray = { character.transf.translation,{character.GetForwardVector().x * 15000,character.GetForwardVector().y * 15000,character.GetForwardVector().z * 15000 } };
-		RayHitInfo info= {};
 		std::cout << CollisionManager::GetInstance()->GetColliders().size() << std::endl;
+
+		Vector3 actorTouchedPos{};
+		RayHitInfo info{};
+		RayHitInfo bestInfo{};
+		bestInfo.distance = INFINITY;
+
+		P_Collision* actorCollided = nullptr;
 		for (auto col : CollisionManager::GetInstance()->GetColliders())
 		{
 			if (col->collisionType == BoxCollider)
@@ -53,25 +59,40 @@ void LevelCreator::Update()
 ;				 info = GetRayCollisionBox(ray, dynamic_cast<BoxCollision*>(col)->GetBoundingBox());
 				 if (info.hit)
 				 {
-					 break;
+					if (info.distance < bestInfo.distance)
+					{
+						bestInfo = info;
+						actorCollided = col;
+					}
+				
 				 }
 			}
 		}
-
+		if (bestInfo.hit)
+		{
+			hitInfo = bestInfo;
+			actorTouchedPos = actorCollided->transform->translation;
+		}
+		
 	
 
-		if(info.hit)
+		if(hitInfo.hit)
 		{
 			//Position où on doit placer le cube
 			putPos = {
-
+				/*
 				(info.position.x),
 				 (info.position.y),
-				 (info.position.z),
+				 (info.position.z),*/
+				//On va utiliser la position de l'objet touché et où il à été touché pour avoir la position
+				actorTouchedPos.x + hitInfo.normal.x * boxSize.x,
+				actorTouchedPos.y + hitInfo.normal.y * boxSize.y,
+				actorTouchedPos.z + hitInfo.normal.z * boxSize.z
 			};
 		}
 		else
 		{
+			
 			putPos =
 			{
 				 ((character.transf.translation.x) + character.GetForwardVector().x * 15) ,
@@ -82,18 +103,18 @@ void LevelCreator::Update()
 		}
 		//Transforme la position en position grille
 		//Il va falloir arrondir
-		putPos = {   (putPos.x / boxSize.x) * boxSize.x,
-						(putPos.y / boxSize.y) * boxSize.y,
-						(putPos.z / boxSize.z) * boxSize.z };
+		putPos = {   floor(putPos.x / boxSize.x) * boxSize.x,
+						ceil(putPos.y / boxSize.y) * boxSize.y,
+						floor(putPos.z / boxSize.z) * boxSize.z };
+		//std::cout << putPos.x <<" "<<putPos.y <<" "<<putPos.z << " "<< std::endl;
+		AddWallAt(putPos);
 
-
-		//AddWallAt(putPos);
 	}
-
+	
+	/*
 	if (IsMouseButtonPressed(1))
 	{
-		Ray ray = { character.transf.translation,{character.GetForwardVector().x * 15000,character.GetForwardVector().y * 15000,character.GetForwardVector().z * 15000 } };
-		RayHitInfo info = {};
+		ray = { character.transf.translation,{character.GetForwardVector().x * 15000,character.GetForwardVector().y * 15000,character.GetForwardVector().z * 15000 } };
 		for (const auto col : CollisionManager::GetInstance()->GetColliders())
 		{
 			if (col->collisionType == BoxCollider)
@@ -106,13 +127,15 @@ void LevelCreator::Update()
 				}
 			}
 		}
-	}
+	}*/
 }
 
 void LevelCreator::Draw()
 {
 	Level::Draw();
-	DrawSphere(putPos, 3, GREEN);
+	//DrawSphere(putPos, 3, GREEN);
+	//DrawSphere(hitInfo.position, 2, hitInfo.hit ? RED:GREEN);
+	//DrawRay(ray, 10, RED);
 
 }
 
