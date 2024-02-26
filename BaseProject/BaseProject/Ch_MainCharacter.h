@@ -3,95 +3,32 @@
 #include <iostream>
 //#include "reasings.h"             
 
-#include "P_Collision.h"
-#include "BoxCollision.h"
-#include "RaycastCollision.h"
 
-#include "AC_FirstPersonCamera.h"
-#include "PhysicBody.h"
 #include "AC_Shoot.h"
-#include "SphereCollision.h"
+#include "MovingCharacter.h"
 
-enum CharacterMovementState {
-	Grounded,
-	InAir,
-};
-
-class Ch_MainCharacter
+class ChMainCharacter: public MovingCharacter
 {
 public:
 
-	void Start();
-	void Draw();
-	void DrawUi();
-	void Update();
+	void Start() override;
+	void Draw() override;
+	void DrawUi() override;
+	void Update() override;
 
-	Camera& GetCamera() { return camera.GetCamera(); }
-	AC_FirstPersonCamera& GetFirstPersonCam() { return camera; }
 
-	void ProcessInputs();
-
-	P_Collision* GetGroundCollider() { return &bodyCol; }
-	P_Collision* GetForwardRayRay() { return &bodyCol; }
-	P_Collision* GetBodyCollider() { return &bodyCol; }
-
-	PhysicBody pb;
-
-	CharacterMovementState state{ Grounded };
-
-	Transform transf{ {0,0,0},{0,0,0,0},{1,1,1} };
-	
-	bool IsGrounded() const { return isGrounded; }
-
-	void SetPos(Vector3 newPos) { pos = newPos; }
-
-	void Death();
-
-	Vector3 GetForwardVector();
 	
 private:
-	//----------COmponenets---------
-	//++ToDo: vector de component parent
-	AC_FirstPersonCamera camera{};
 
-	//----
-
-	SphereCollision bodyCol{ 2 };
-
-	//----------- Transform ------------
-
-	Vector3 pos{4,20,4};
-
-	//----GoUp ---------
-	void GoUp();
-	void GoDown();
-
-	bool isGrounded{ false };
-
-
-	//-----For movement
-	void Move();
-
-
-	bool dir[4]{0,0,0,0};
-	Vector3 direction{0,0,0};
-
-
-	/**\brief Vitesse de déplacement */
-	float maxSpeed{60};
-	/**\brief Vitesse de déplacement en Vertical seulement */
-	float upDownSpeed{30};
-
-
+	void ProcessInputs() override;
 	//---------For shoot ----------
-
-	Vector3 GetVector(Vector3 dir);
-
 	AC_Shoot shootingComponent{1,Layer4};
 
 	//-----------Dash----------
-
 	void Dash();
+
+
+private:
 	float dashForce{ 1500 };
 	bool canDash{ true };
 

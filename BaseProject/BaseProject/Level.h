@@ -34,7 +34,7 @@ public:
 			
 protected:
 
-	Ch_MainCharacter character;
+	ChMainCharacter character;
 
 	std::vector<CubeActor*> Terrain; //Stoquage des acteurs obstacles et sol
 	std::vector<Ennemy*> Ennemies; 

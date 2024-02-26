@@ -13,7 +13,7 @@ void LevelCreator::Start()
 	//... pour le player start, les portes et les boutons
 
 	//Remove collision of character
-	character.GetGroundCollider()->checkingCollision = false;
+	character.GetBodyCollider()->checkingCollision = false;
 
 	for (int xx = 0; xx < 20.; ++xx)
 	{
@@ -31,13 +31,13 @@ void LevelCreator::Update()
 
 	if (IsKeyPressed(KEY_C))
 	{
-		if (character.GetGroundCollider()->checkingCollision)
+		if (character.GetBodyCollider()->checkingCollision)
 		{
-			character.GetGroundCollider()->checkingCollision = false;
+			character.GetBodyCollider()->checkingCollision = false;
 		}
 		else
 		{
-			character.GetGroundCollider()->checkingCollision = true;
+			character.GetBodyCollider()->checkingCollision = true;
 		}
 	}
 
@@ -80,8 +80,7 @@ void LevelCreator::Draw()
 void LevelCreator::CalculateWherePosActor()
 {
 	//ToDo: il va falloir faire en sorte que si un bloc est déjà présent n'en place pas un nouveau
-	Ray ray = { character.transf.translation,{character.GetForwardVector().x * 15000,character.GetForwardVector().y * 15000,character.GetForwardVector().z * 15000 } };
-	std::cout << CollisionManager::GetInstance()->GetColliders().size() << std::endl;
+	Ray ray = { character.GetPosition(),{character.GetForwardVector().x * 15000,character.GetForwardVector().y * 15000,character.GetForwardVector().z * 15000 } };
 
 	Vector3 actorTouchedPos{};
 	RayHitInfo info{};

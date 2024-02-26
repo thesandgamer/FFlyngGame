@@ -22,13 +22,13 @@ public:
 	void SetPos(Vector3 newPos) { transf.translation = newPos; }
 	bool IsGrounded() const { return isGrounded; }
 
+	Vector3 GetPosition() const { return transf.translation; }
 
 	Vector3 GetForwardVector() const;
 	P_Collision* GetBodyCollider() { return &bodyCol; }
 
 	Camera& GetCamera() { return camera.GetCamera(); }
 	AC_FirstPersonCamera& GetFirstPersonCam() { return camera; }
-
 
 
 protected:
@@ -50,12 +50,26 @@ protected:
 
 
 	//---------Inputs
-	void ProcessInputs();
+	virtual void ProcessInputs();
 
 
 	PhysicBody pb {};
 	Transform transf{ {0,0,0},{0,0,0,0},{1,1,1} };
 
+	CharacterMovementState state{ InAir };
 	bool isGrounded{ false };
+
+
+public:
+
+	MovingCharacter() = default;
+	virtual ~MovingCharacter() = default;
+
+	MovingCharacter(Vector3 startPos,float maxSpeed, float upDownSpeed)
+		: maxSpeed(maxSpeed), upDownSpeed(upDownSpeed)
+	{
+		transf.translation = startPos;
+	}
+
 };
 
