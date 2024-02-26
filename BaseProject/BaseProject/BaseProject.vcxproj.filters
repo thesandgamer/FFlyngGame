@@ -110,6 +110,7 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="LevelCreator.h" />
+    <ClInclude Include="MovingCharacter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -193,5 +194,6 @@
     </ClCompile>
     <ClCompile Include="PhysicActor.cpp" />
     <ClCompile Include="LevelCreator.cpp" />
+    <ClCompile Include="MovingCharacter.cpp" />
   </ItemGroup>
 </Project>

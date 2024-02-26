@@ -142,8 +142,6 @@ void LevelCreator::CalculateWherePosActor()
 				floor(putPos.z / boxSize.z) * boxSize.z };
 				*/
 	}
-	//Transforme la position en position grille
-	//Il va falloir arrondir
 
 	//std::cout << putPos.x <<" "<<putPos.y <<" "<<putPos.z << " "<< std::endl;
 }
