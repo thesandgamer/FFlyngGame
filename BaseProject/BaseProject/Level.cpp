@@ -12,7 +12,6 @@ void Level::Start()
 
     lights[0].enabled = true;
 
-    character.Start();
     CollisionManager::GetInstance()->Start();
 
     for each (CubeActor * element in Terrain)
@@ -40,6 +39,8 @@ void Level::Start()
         element->Start();
     }
 
+    chara->Start();
+
     //Créer la death zone
     /*
     deathzone = new CubeActor({ 0,-50,0 }, { 800, 10, 800 }, BLACK);
@@ -48,9 +49,9 @@ void Level::Start()
     deathzone->GetCollision()->checkingCollision = true;
     */
     //Pour le shader
-    float cameraPos[3] = { character.GetCamera().position.x,
-    character.GetCamera().position.y,
-    character.GetCamera().position.z };
+    float cameraPos[3] = { chara->GetCamera().position.x,
+    chara->GetCamera().position.y,
+    chara->GetCamera().position.z };
 
     SetShaderValue(*Utility::GetInstance()->shader, Utility::GetInstance()->shader->locs[SHADER_LOC_VECTOR_VIEW],
         &cameraPos, SHADER_UNIFORM_VEC3);   //Change la valeur de camera pos du shader
@@ -60,7 +61,7 @@ void Level::Start()
 void Level::Update()
 {
 
-    character.Update();
+    chara->Update();
     //deathzone->Update();
 
     CollisionManager::GetInstance()->Update();//Check les collisions
@@ -109,7 +110,7 @@ void Level::Update()
 
 void Level::Draw()
 {
-    BeginMode3D(character.GetCamera());
+    BeginMode3D(chara->GetCamera());
 
     CollisionManager::GetInstance()->Draw();
 
@@ -139,7 +140,7 @@ void Level::Draw()
     }
 
    // deathzone->Draw();
-    character.Draw();
+    chara->Draw();
 
 
 
@@ -154,7 +155,7 @@ void Level::Draw()
 
 void Level::DrawUi()
 {
-    character.DrawUi();
+    chara->DrawUi();
     /*
       DrawText(TextFormat("rot x: % 02.02f", QuaternionToEuler(character.transf.rotation).x), 10, 10, 10, WHITE);
       DrawText(TextFormat("rot y: % 02.02f", QuaternionToEuler(character.transf.rotation).y ), 10, 20 , 10, WHITE);
@@ -183,5 +184,5 @@ void Level::Clean()
 
 void Level::ResetLevel()
 {
-	character.Death();
+    chara->Death();
 }

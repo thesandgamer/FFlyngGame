@@ -4,7 +4,7 @@
 void Level0::Start()
 {
     //----------------------------
-
+    chara = new ChMainCharacter();
 
     
     //----------Création du terrain---------

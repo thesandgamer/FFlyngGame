@@ -1,4 +1,5 @@
 #include "MovingCharacter.h"
+#include "Utility.h"  
 
 void MovingCharacter::Start()
 {
@@ -50,6 +51,12 @@ void MovingCharacter::Draw()
 
 void MovingCharacter::DrawUi()
 {
+    //Dessiner le curseur   
+    DrawTextureEx(Utility::GetInstance()->dotTexture,
+        { static_cast<float>(screenWidth) / 2 ,
+        static_cast<float>(screenHeight) / 2 },
+        0, 0.02f, WHITE);
+
     DrawFPS(20, 20);
 }
 

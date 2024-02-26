@@ -4,7 +4,6 @@
 
 void LevelCreator::Start()
 {
-	Level::Start();
 
 	//On va lire un fichier composé de couches de numéro
 	//Pour chaque 0 on nen vas rien faire
@@ -13,7 +12,8 @@ void LevelCreator::Start()
 	//... pour le player start, les portes et les boutons
 
 	//Remove collision of character
-	character.GetBodyCollider()->checkingCollision = false;
+	//character.GetBodyCollider()->checkingCollision = false;
+	chara = new MovingCharacter();
 
 	for (int xx = 0; xx < 20.; ++xx)
 	{
@@ -23,6 +23,11 @@ void LevelCreator::Start()
 			Terrain.push_back(new CubeActor({ pos.x,pos.y,pos.z }, boxSize, wallColor));
 		}
 	}
+
+	Level::Start();
+
+	chara->GetBodyCollider()->checkingCollision = false;
+
 }
 
 void LevelCreator::Update()
@@ -31,13 +36,13 @@ void LevelCreator::Update()
 
 	if (IsKeyPressed(KEY_C))
 	{
-		if (character.GetBodyCollider()->checkingCollision)
+		if (chara->GetBodyCollider()->checkingCollision)
 		{
-			character.GetBodyCollider()->checkingCollision = false;
+			chara->GetBodyCollider()->checkingCollision = false;
 		}
 		else
 		{
-			character.GetBodyCollider()->checkingCollision = true;
+			chara->GetBodyCollider()->checkingCollision = true;
 		}
 	}
 
@@ -80,7 +85,7 @@ void LevelCreator::Draw()
 void LevelCreator::CalculateWherePosActor()
 {
 	//ToDo: il va falloir faire en sorte que si un bloc est déjà présent n'en place pas un nouveau
-	Ray ray = { character.GetPosition(),{character.GetForwardVector().x * 15000,character.GetForwardVector().y * 15000,character.GetForwardVector().z * 15000 } };
+	Ray ray = { chara->GetPosition(),{chara->GetForwardVector().x * 15000,chara->GetForwardVector().y * 15000,chara->GetForwardVector().z * 15000 } };
 
 	Vector3 actorTouchedPos{};
 	RayHitInfo info{};

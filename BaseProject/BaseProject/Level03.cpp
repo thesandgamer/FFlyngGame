@@ -10,7 +10,8 @@ Level03::~Level03()
 
 void Level03::Start()
 {
-    
+    chara = new ChMainCharacter();
+
     //----------Création du terrain---------
     Color color = { GetRandomValue(169, 122), GetRandomValue(109, 89), GetRandomValue(163, 128), 255 };
     std::vector<CubeActor* > cubes = {
