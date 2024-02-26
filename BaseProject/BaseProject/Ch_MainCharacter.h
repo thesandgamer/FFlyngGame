@@ -4,6 +4,7 @@
 //#include "reasings.h"             
 
 
+#include "Ac_LifeSystem.h"
 #include "AC_Shoot.h"
 #include "MovingCharacter.h"
 
@@ -32,6 +33,7 @@ private:
 	float dashForce{ 1500 };
 	bool canDash{ true };
 
+	AcLifeSystem lifeManager{20};
 
 
 };

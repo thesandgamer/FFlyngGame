@@ -52,6 +52,15 @@ void LevelCreator::Update()
 	{
 		AddWallAt(putPos);
 	}
+
+	if (IsMouseButtonPressed(1))
+	{
+		P_Collision* actorToRemove = CalculateWhereRemoveActor();
+		if (actorToRemove != nullptr)
+		{
+			
+		}
+	}
 	
 	/*
 	if (IsMouseButtonPressed(1))
@@ -81,6 +90,56 @@ void LevelCreator::Draw()
 	DrawCubeWires(putPos, boxSize.x, boxSize.y, boxSize.z, WHITE);
 
 }
+
+P_Collision* LevelCreator::CalculateWhereRemoveActor()
+{
+	Ray ray = { chara->GetPosition(),{chara->GetForwardVector().x * 15000,chara->GetForwardVector().y * 15000,chara->GetForwardVector().z * 15000 } };
+
+	Vector3 actorTouchedPos{};
+	RayHitInfo info{};
+	RayHitInfo bestInfo{};
+	bestInfo.distance = INFINITY;
+
+	P_Collision* actorCollided = nullptr;
+	for (auto col : CollisionManager::GetInstance()->GetColliders())
+	{
+		if (col->collisionType == BoxCollider)
+		{
+			info = GetRayCollisionBox(ray, dynamic_cast<BoxCollision*>(col)->GetBoundingBox());
+			if (info.hit)
+			{
+				if (info.distance < bestInfo.distance)
+				{
+					bestInfo = info;
+					actorCollided = col;
+				}
+
+			}
+		}
+	}
+
+	if (bestInfo.hit)
+	{
+		hitInfo = bestInfo;
+		actorTouchedPos = actorCollided->transform->translation;
+
+		putPos = {
+			/*
+			(info.position.x),
+			 (info.position.y),
+			 (info.position.z),*/
+			 //On va utiliser la position de l'objet touché et où il à été touché pour avoir la position
+			 actorTouchedPos.x ,
+			 actorTouchedPos.y ,
+			 actorTouchedPos.z 
+		};
+		return actorCollided;
+
+	}
+
+	return nullptr;
+}
+
 
 void LevelCreator::CalculateWherePosActor()
 {

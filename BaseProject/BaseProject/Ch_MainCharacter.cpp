@@ -6,6 +6,7 @@ void ChMainCharacter::Start()
 {
     MovingCharacter::Start();
     shootingComponent.Start();
+    lifeManager.Start();
 
 }
 
@@ -14,11 +15,14 @@ void ChMainCharacter::Draw()
     MovingCharacter::Draw();
     shootingComponent.Draw();
 
+
 }
 
 void ChMainCharacter::DrawUi()
 {
     MovingCharacter::DrawUi();
+    lifeManager.DrawUi();
+
 
 
 }
@@ -26,8 +30,10 @@ void ChMainCharacter::DrawUi()
 void ChMainCharacter::Update()
 {
     MovingCharacter::Update();
+    lifeManager.Update();
 
     shootingComponent.Update();
+
 }
 
 void ChMainCharacter::ProcessInputs()

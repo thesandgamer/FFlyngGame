@@ -44,9 +44,12 @@ protected:
 	bool dir[4]{ 0,0,0,0 };
 
 	/**\brief Vitesse de déplacement */
-	float maxSpeed{ 60 };
+	float maxSpeed{ 70 };
 	/**\brief Vitesse de déplacement en Vertical seulement */
-	float upDownSpeed{ 30 };
+	float upDownSpeed{ 50 };
+
+	/** \brief A quel point le déplacement perd en vitesse*/
+	float friction{ 1.5f };
 
 
 	//---------Inputs
@@ -54,7 +57,7 @@ protected:
 
 
 	PhysicBody pb {};
-	Transform transf{ {0,0,0},{0,0,0,0},{1,1,1} };
+	Transform transf{ {0,40,0},{0,0,0,0},{1,1,1} };
 
 	CharacterMovementState state{ InAir };
 	bool isGrounded{ false };

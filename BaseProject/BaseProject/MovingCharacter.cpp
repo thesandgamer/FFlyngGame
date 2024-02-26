@@ -20,7 +20,7 @@ void MovingCharacter::Start()
     pb.SetColliderForCollisionCheck(&bodyCol);//Set la boite de collision pour le check des cols de la gravité
     pb.canFall = false;
     pb.SetBounciness(2);
-    pb.friction = 2;
+    pb.friction = friction;
     pb.elasticity = .9f;
 }
 

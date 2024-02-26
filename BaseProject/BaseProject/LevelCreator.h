@@ -8,6 +8,7 @@ public:
 	void Start() override;
 	void Update() override;
 	void Draw() override;
+	P_Collision* CalculateWhereRemoveActor();
 
 	void CalculateWherePosActor();
 
