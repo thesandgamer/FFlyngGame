@@ -12,11 +12,9 @@ public:
 	BoxCollision();
 	BoxCollision(Vector3 sizeP);
 
-	void Draw();
+	void Draw() override;
 
 	BoundingBox GetBoundingBox(); //++Todo Renvoyer un pointeur de bounding box
-
-	void Test() {};
 
 
 private:

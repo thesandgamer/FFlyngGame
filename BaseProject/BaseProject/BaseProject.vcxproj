@@ -184,6 +184,7 @@
     <ClInclude Include="Ennemy.h" />
     <ClInclude Include="GMath.hpp" />
     <ClInclude Include="LevelCreator.h" />
+    <ClInclude Include="MovingActor.h" />
     <ClInclude Include="MovingCharacter.h" />
     <ClInclude Include="PhysicActor.h" />
     <ClInclude Include="PhysicBody.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="Ennemy.cpp" />
     <ClCompile Include="GMath.cpp" />
     <ClCompile Include="LevelCreator.cpp" />
+    <ClCompile Include="MovingActor.cpp" />
     <ClCompile Include="MovingCharacter.cpp" />
     <ClCompile Include="PhysicActor.cpp" />
     <ClCompile Include="PhysicBody.cpp" />

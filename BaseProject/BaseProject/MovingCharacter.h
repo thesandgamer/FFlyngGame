@@ -1,6 +1,6 @@
 #pragma once
 #include "AC_FirstPersonCamera.h"
-#include "PhysicBody.h"
+#include "MovingActor.h"
 #include "SphereCollision.h"
 
 enum CharacterMovementState {
@@ -10,22 +10,18 @@ enum CharacterMovementState {
 
 
 
-class MovingCharacter
+class MovingCharacter : public MovingActor
 {
 public:
-	virtual void Start();
-	virtual void Update();
-	virtual void Draw();
+	void Start() override;
+	void Update() override;
+	void Draw() override;
 	virtual void DrawUi();
 
 	void Death();
-	void SetPos(Vector3 newPos) { transf.translation = newPos; }
-	bool IsGrounded() const { return isGrounded; }
-
-	Vector3 GetPosition() const { return transf.translation; }
 
 	Vector3 GetForwardVector() const;
-	P_Collision* GetBodyCollider() { return &bodyCol; }
+	P_Collision* GetBodyCollider() const { return bodyCol; }
 
 	Camera& GetCamera() { return camera.GetCamera(); }
 	AC_FirstPersonCamera& GetFirstPersonCam() { return camera; }
@@ -33,7 +29,6 @@ public:
 
 protected:
 	AC_FirstPersonCamera camera{};
-	SphereCollision bodyCol{ 2 };
 
 	//-----------For movement----------
 	void Move();
@@ -55,24 +50,15 @@ protected:
 	//---------Inputs
 	virtual void ProcessInputs();
 
-
-	PhysicBody pb {};
-	Transform transf{ {0,40,0},{0,0,0,0},{1,1,1} };
-
 	CharacterMovementState state{ InAir };
-	bool isGrounded{ false };
 
 
 public:
 
-	MovingCharacter() = default;
+	MovingCharacter();
 	virtual ~MovingCharacter() = default;
 
-	MovingCharacter(Vector3 startPos,float maxSpeed, float upDownSpeed)
-		: maxSpeed(maxSpeed), upDownSpeed(upDownSpeed)
-	{
-		transf.translation = startPos;
-	}
+	MovingCharacter(Vector3 startPos, float maxSpeed, float upDownSpeed);
 
 };
 

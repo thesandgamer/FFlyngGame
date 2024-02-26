@@ -6,7 +6,5 @@ class Level0 final :
 {
 public:
     void Start() override;
-
-
 };
 

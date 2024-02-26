@@ -15,11 +15,9 @@ public:
 	SphereCollision(float radius);
 	SphereCollision(Vector3 pos, float radius);
 
-	void Draw();
+	void Draw() override;
 
 	Sphere GetCollider(); //++Todo Renvoyer un pointeur de bounding box
-
-	void Test() {};
 
 private:
 	float rad{ 1 };

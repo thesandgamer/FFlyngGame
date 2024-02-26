@@ -11,7 +11,7 @@ public:
     RaycastCollision(Vector3 pos, Vector3 directionP, float lengthP);
     ~RaycastCollision();
 
-    void Draw();
+    void Draw() override;
 
     Ray GetRay();
 

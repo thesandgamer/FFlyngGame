@@ -111,6 +111,7 @@
     </ClInclude>
     <ClInclude Include="LevelCreator.h" />
     <ClInclude Include="MovingCharacter.h" />
+    <ClInclude Include="MovingActor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -195,5 +196,6 @@
     <ClCompile Include="PhysicActor.cpp" />
     <ClCompile Include="LevelCreator.cpp" />
     <ClCompile Include="MovingCharacter.cpp" />
+    <ClCompile Include="MovingActor.cpp" />
   </ItemGroup>
 </Project>

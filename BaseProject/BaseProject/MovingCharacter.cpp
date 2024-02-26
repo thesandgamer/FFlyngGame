@@ -7,27 +7,13 @@ void MovingCharacter::Start()
     camera.SetParent(&transf);
     camera.Start();
 
+    MovingActor::Start();
 
-    //----------Set body collider
-    bodyCol.SetParent(&transf);
-    bodyCol.id = 12;
-    bodyCol.checkingCollision = true;
-    bodyCol.layer = Layer3;
-    bodyCol.showCollisions = false;
-
-    //----------Set Physics body
-    pb.SetPos(&transf.translation);
-    pb.SetColliderForCollisionCheck(&bodyCol);//Set la boite de collision pour le check des cols de la gravité
-    pb.canFall = false;
-    pb.SetBounciness(2);
-    pb.friction = friction;
-    pb.elasticity = .9f;
 }
 
 void MovingCharacter::Update()
 {
-    //Process PhysicBody
-    pb.Update();
+    MovingActor::Update();
 
     //Process inputs
     ProcessInputs();
@@ -45,8 +31,8 @@ void MovingCharacter::Update()
 
 void MovingCharacter::Draw()
 {
+    MovingActor::Draw();
     camera.Draw();
-    bodyCol.Draw();
 }
 
 void MovingCharacter::DrawUi()
@@ -122,3 +108,15 @@ void MovingCharacter::ProcessInputs()
         GoDown();
     }
 }
+
+MovingCharacter::MovingCharacter()
+{
+    bodyCol = new SphereCollision(1);
+}
+
+MovingCharacter::MovingCharacter(Vector3 startPos, float maxSpeed, float upDownSpeed)
+    : MovingActor(startPos), maxSpeed(maxSpeed), upDownSpeed(upDownSpeed)
+{
+    bodyCol = new SphereCollision(1);
+}
+

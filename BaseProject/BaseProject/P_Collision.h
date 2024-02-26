@@ -40,6 +40,8 @@ public:
 	P_Collision();
 	virtual ~P_Collision();
 
+	virtual void Draw() = 0;
+
 	CollisionType collisionType{ BoxCollider };
 	bool trigger{false};
 	bool checkingCollision{ false };
