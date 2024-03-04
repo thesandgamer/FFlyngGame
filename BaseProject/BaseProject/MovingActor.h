@@ -13,6 +13,8 @@ public:
 	bool IsGrounded() const { return isGrounded; }
 	Vector3 GetPosition() const { return transf.translation; }
 
+	P_Collision* GetCollider() const { return bodyCol; }
+
 protected:
 	bool gravity = false;
 

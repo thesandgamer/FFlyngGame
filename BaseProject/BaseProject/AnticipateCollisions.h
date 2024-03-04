@@ -3,7 +3,7 @@
 
 class AnticipateCollisions
 {
-	// Il va prendre en paramètre un collider, la prochaine position où l'objet doit bouger, 
+	// Il va prendre en paramètre un triggerCollider, la prochaine position où l'objet doit bouger, 
 	// et va retourner un bolléen pour savoir si cette prochaine position collisionne
 public:
 

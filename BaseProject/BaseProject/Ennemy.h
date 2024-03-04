@@ -1,29 +1,24 @@
 #pragma once
 #include "SphereCollision.h"
 #include "AC_Shoot.h"
+#include "MovingActor.h"
 
-class Ennemy
+class Ennemy: public MovingActor
 {
 public:
 	Ennemy();
 	Ennemy(Vector3 pos, float detectionRadius);
-	~Ennemy();
 
 
-	void Start();
-	void Draw();
-	void Update();
+	void Start() override;
+	void Draw() override;
+	void Update() override;
 
-	SphereCollision* GetCollider() { return &collider; }
-	Vector3* GetPos() { return &transform.translation; }
-
-	Transform transform{ {0,0,0},{0,0,0,0},{1,1,1} };
-
-	void Test() { std::cout << "Ennemy functio ntest" << std::endl; }
+	SphereCollision* GetTriggerCollider() { return &triggerCollider; }
 
 private:
 
-	SphereCollision collider;
+	SphereCollision triggerCollider;
 	AC_Shoot shootComponenet{2,Layer4};
 
 	void Shoot();

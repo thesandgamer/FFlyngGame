@@ -56,7 +56,7 @@ private:
 
 	void InsertCollision(bool insert, P_Collision* collider, P_Collision* colliderToCheck);
 
-	//++ToDo faire une fonction pour check uniquement les collider proche les uns des autres
+	//++ToDo faire une fonction pour check uniquement les triggerCollider proche les uns des autres
 
 };
 

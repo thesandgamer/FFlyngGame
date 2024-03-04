@@ -7,7 +7,7 @@ void MovingActor::Start()
     bodyCol->id = 12;
     bodyCol->checkingCollision = true;
     bodyCol->layer = Layer3;
-    bodyCol->showCollisions = false;
+    bodyCol->showCollisions = true;
 
     //----------Set Physics body
     pb.SetPos(&transf.translation);

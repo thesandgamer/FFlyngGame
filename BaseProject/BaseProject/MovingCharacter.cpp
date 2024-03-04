@@ -9,6 +9,9 @@ void MovingCharacter::Start()
 
     MovingActor::Start();
 
+    GetBodyCollider()->layer = Layer4;
+
+
 }
 
 void MovingCharacter::Update()
