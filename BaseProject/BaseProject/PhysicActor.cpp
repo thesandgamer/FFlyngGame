@@ -13,7 +13,7 @@ void PhysicActor::Start()
 {
 	CubeActor::Start();
 	collision.id = 20;
-	collision.layer = Layer3;
+	collision.layer = BodyColliders;
 	collision.checkingCollision = true;
 	collision.showCollisions = true;
 

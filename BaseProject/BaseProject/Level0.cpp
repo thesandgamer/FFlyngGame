@@ -20,7 +20,7 @@ void Level0::Start()
     PhysicActors.push_back(new PhysicActor({10,25,4}));
 
     std::vector<Ennemy* > ennmis = {
-       new Ennemy({ 0,0,0 }, 20)
+       new Ennemy({ 50,50,0 }, 20)
     };
     Ennemies.assign(ennmis.begin(), ennmis.end());
 

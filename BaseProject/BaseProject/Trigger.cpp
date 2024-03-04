@@ -13,7 +13,7 @@ Trigger::Trigger(Vector3 posP, Vector3 sizeP )
 
 	collision.trigger = true;
 	collision.checkingCollision = true;
-	collision.collideWithLayer = Layer3;
+	collision.collideWithLayer = PlayerCollider;
 
 	collision.SetParent(&transform);
 	collision.id = 28;

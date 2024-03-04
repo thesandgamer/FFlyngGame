@@ -12,7 +12,7 @@ public:
 	AC_Shoot();
 	~AC_Shoot();
 	AC_Shoot(float cooldown);
-	AC_Shoot(float cooldown, CollisionLayer layerToProjectileCollide= Layer2);
+	AC_Shoot(float cooldown, CollisionLayer layerToProjectileCollide= BodyColliders);
 
 	void Start();
 	void Update();
@@ -37,7 +37,7 @@ private:
 	void StartTimer();
 
 
-	CollisionLayer layer{Layer1};
+	CollisionLayer layer{BodyColliders};
 	CollisionLayer projectileCollideWith{Layer0};
 
 

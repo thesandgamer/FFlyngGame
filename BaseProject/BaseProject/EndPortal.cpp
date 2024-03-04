@@ -12,7 +12,7 @@ EndPortal::EndPortal(Vector3 position, Vector3 scale)
 
 	trigger.GetCollision()->trigger = true;
 	trigger.GetCollision()->checkingCollision = true;
-	trigger.GetCollision()->collideWithLayer = Layer3;
+	trigger.GetCollision()->collideWithLayer = PlayerCollider;
 
 	trigger.AddFunctionToTrigger( std::bind(&LevelManager::GoToNextLevel, LevelManager::GetInstance()) );
 }

@@ -5,6 +5,7 @@
 class MovingActor
 {
 public:
+	virtual void Init();
 	virtual void Start();
 	virtual void Update();
 	virtual void Draw();
@@ -27,7 +28,7 @@ protected:
 
 public:
 
-	MovingActor() = default;
+	MovingActor();
 	MovingActor(Vector3 spawnPos);
 };
 

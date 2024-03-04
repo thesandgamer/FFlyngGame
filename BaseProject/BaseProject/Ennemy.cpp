@@ -4,22 +4,28 @@
 
 Ennemy::Ennemy() : MovingActor()
 {
+	bodyCol = new SphereCollision(2);
+
 }
 
 Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 {
-	//On ajoute le trigger pour la détéction
 	bodyCol = new SphereCollision(2);
+	transf.translation = pos;
+	//On ajoute le trigger pour la détéction
+	//bodyCol->layer = BodyColliders;
 
+	//----Trigger
 	triggerCollider = SphereCollision(detectionRadius);//Peut être juste avoir une fonction set radius
 	triggerCollider.trigger = true; //Cette collision sera un trigger
 	triggerCollider.SetParent(&transf);
-
-	triggerCollider.collideWithLayer = Layer4;	//Collideavec le alyer 3 = body du player
-	triggerCollider.layer = Layer2;	//La sphere de détéction est sur la layer2
+	triggerCollider.collideWithLayer = PlayerCollider;	//Collideavec le alyer 4 = body du player
+	triggerCollider.layer = BodyColliders;	//La sphere de détéction est sur la layer2
 	triggerCollider.checkingCollision = true;
 
 	triggerCollider.id = 8;
+
+	
 }
 
 
@@ -28,6 +34,10 @@ void Ennemy::Start()
 {
 	MovingActor::Start();
 	shootComponenet.Start();
+	bodyCol->layer = EnnemyCollider;
+
+
+	
 }
 
 void Ennemy::Draw()
@@ -77,12 +87,12 @@ void Ennemy::Shoot()
 	(target->translation.z - transf.translation.z) };
 	float unit = sqrt(pow(v.x, 2) + pow(v.y, 2) + pow(v.z, 2));
 	direction = {
-		(1 / unit) * v.x*10,
-		(1 / unit) * v.y*10,
-		(1 / unit) * v.z*10,
+		(1 / unit) * v.x,
+		(1 / unit) * v.y,
+		(1 / unit) * v.z,
 	};
 
-	shootComponenet.Shoot(transf.translation,direction,35);
+	shootComponenet.Shoot(transf.translation,direction,1000);
 }
 
 void Ennemy::ReloadShoot()

@@ -18,11 +18,11 @@ enum CollisionTouching {
 //++ToDo: faire un meilleur système de layer de collision, ou mieux l'utiliser
 enum CollisionLayer {
 	Layer0 = 1 << 0,
-	Layer1 = 1 << 1,
-	Layer2 = 1 << 2,
-	Layer3 = 1 << 3,
-	Layer4 = 1 << 4,
-	Layer5 = 1 << 5,
+	BodyColliders = 1 << 1,
+	EnnemyCollider = 1 << 2,
+	PlayerCollider = 1 << 3,
+	PlayerProjectileCollision = 1 << 4,
+	EnnemyProjectileCollision = 1 << 5,
 
 };
 
@@ -62,10 +62,9 @@ public:
 	//std::shared_ptr<Transform> Transform{};	//Transform du parent
 	Transform* transform{};	//Transform du parent
 
-	virtual void Test() {};
 
-	CollisionLayer layer{Layer0};
-	CollisionLayer collideWithLayer{Layer0};
+	CollisionLayer layer{BodyColliders};
+	CollisionLayer collideWithLayer{ BodyColliders };
 
 	double id{ -1 };
 

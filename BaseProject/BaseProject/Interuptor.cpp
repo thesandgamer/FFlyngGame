@@ -22,7 +22,7 @@ void Interuptor::Start()
 {
 	trigger.GetCollision()->trigger = true;
 	trigger.GetCollision()->checkingCollision = true;
-	trigger.GetCollision()->collideWithLayer = Layer4;
+	trigger.GetCollision()->collideWithLayer = PlayerProjectileCollision;
 
 	trigger.Start();
 }

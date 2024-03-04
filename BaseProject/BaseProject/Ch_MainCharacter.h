@@ -23,7 +23,7 @@ private:
 
 	void ProcessInputs() override;
 	//---------For shoot ----------
-	AC_Shoot shootingComponent{1,Layer4};
+	AC_Shoot shootingComponent{1,PlayerProjectileCollision};
 
 	//-----------Dash----------
 	void Dash();

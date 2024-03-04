@@ -19,7 +19,7 @@ public:
 private:
 
 	SphereCollision triggerCollider;
-	AC_Shoot shootComponenet{2,Layer4};
+	AC_Shoot shootComponenet{2,EnnemyProjectileCollision };
 
 	void Shoot();
 	void ReloadShoot();

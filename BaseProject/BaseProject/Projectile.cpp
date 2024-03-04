@@ -7,6 +7,7 @@ Projectile::Projectile(Vector3 position, Vector3 launchForce, CollisionLayer lay
 	bodyCol = new BoxCollision({ 1,1,1 });
 	transf.translation = position;
 	bodyCol->layer = layer;
+	bodyCol->collideWithLayer = BodyColliders;
 
 	Start();
 	AddForce(launchForce);

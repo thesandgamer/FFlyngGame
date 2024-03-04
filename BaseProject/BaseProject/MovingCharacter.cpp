@@ -1,15 +1,29 @@
 #include "MovingCharacter.h"
 #include "Utility.h"  
 
+MovingCharacter::MovingCharacter()
+{
+    bodyCol = new SphereCollision(1);
+}
+
+MovingCharacter::MovingCharacter(Vector3 startPos, float maxSpeed, float upDownSpeed)
+    : MovingActor(startPos), maxSpeed(maxSpeed), upDownSpeed(upDownSpeed)
+{
+    bodyCol = new SphereCollision(1);
+}
+
 void MovingCharacter::Start()
 {
+    MovingActor::Start();
+    bodyCol->layer = PlayerCollider;
+
+
     //----------Set camera
     camera.SetParent(&transf);
     camera.Start();
 
-    MovingActor::Start();
 
-    GetBodyCollider()->layer = Layer4;
+  //  GetBodyCollider()->layer = PlayerProjectileCollision;
 
 
 }
@@ -110,16 +124,5 @@ void MovingCharacter::ProcessInputs()
     {
         GoDown();
     }
-}
-
-MovingCharacter::MovingCharacter()
-{
-    bodyCol = new SphereCollision(1);
-}
-
-MovingCharacter::MovingCharacter(Vector3 startPos, float maxSpeed, float upDownSpeed)
-    : MovingActor(startPos), maxSpeed(maxSpeed), upDownSpeed(upDownSpeed)
-{
-    bodyCol = new SphereCollision(1);
 }
 

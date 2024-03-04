@@ -18,7 +18,7 @@ class Projectile : public MovingActor
 public:
 	friend class AC_Shoot;
 
-	Projectile(Vector3 position, Vector3 launchForce, CollisionLayer layer = Layer2, AC_Shoot* parentP = nullptr);
+	Projectile(Vector3 position, Vector3 launchForce, CollisionLayer layer = BodyColliders, AC_Shoot* parentP = nullptr);
 
 	void Start() override;
 	void Draw() override;
