@@ -15,6 +15,7 @@ Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 	//On ajoute le trigger pour la détéction
 	//bodyCol->layer = BodyColliders;
 
+	/*
 	//----Trigger
 	triggerCollider = SphereCollision(detectionRadius);//Peut être juste avoir une fonction set radius
 	triggerCollider.trigger = true; //Cette collision sera un trigger
@@ -24,7 +25,7 @@ Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 	triggerCollider.checkingCollision = true;
 
 	triggerCollider.id = 8;
-
+	*/
 	
 }
 

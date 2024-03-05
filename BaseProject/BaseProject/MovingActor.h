@@ -23,7 +23,7 @@ protected:
 	Transform transf{ {0,40,0},{0,0,0,0},{1,1,1} };
 	bool isGrounded{ false };
 
-	P_Collision* bodyCol = nullptr;
+	P_Collision* bodyCol = new BoxCollision();
 
 
 public:

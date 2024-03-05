@@ -2,6 +2,7 @@
 
 BoxCollision::BoxCollision()
 {
+	Offset.scale = { -1,-1,-1 };
 }
 
 BoxCollision::BoxCollision(Vector3 sizeP) : P_Collision()

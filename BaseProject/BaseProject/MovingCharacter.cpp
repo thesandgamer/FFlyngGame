@@ -3,7 +3,7 @@
 
 MovingCharacter::MovingCharacter()
 {
-    bodyCol = new SphereCollision(1);
+//    bodyCol = new SphereCollision(1);
 }
 
 MovingCharacter::MovingCharacter(Vector3 startPos, float maxSpeed, float upDownSpeed)
