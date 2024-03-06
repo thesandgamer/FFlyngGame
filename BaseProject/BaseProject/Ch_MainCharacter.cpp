@@ -8,6 +8,10 @@ void ChMainCharacter::Start()
     shootingComponent.Start();
     lifeManager.Start();
 
+    pb.SetBounciness(1.5);
+    pb.friction = .9f;
+    pb.elasticity = .9f;
+
 }
 
 void ChMainCharacter::Draw()

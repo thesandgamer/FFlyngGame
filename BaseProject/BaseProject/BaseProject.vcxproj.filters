@@ -112,6 +112,7 @@
     <ClInclude Include="LevelCreator.h" />
     <ClInclude Include="MovingCharacter.h" />
     <ClInclude Include="MovingActor.h" />
+    <ClInclude Include="LevelGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -197,5 +198,6 @@
     <ClCompile Include="LevelCreator.cpp" />
     <ClCompile Include="MovingCharacter.cpp" />
     <ClCompile Include="MovingActor.cpp" />
+    <ClCompile Include="LevelGenerator.cpp" />
   </ItemGroup>
 </Project>

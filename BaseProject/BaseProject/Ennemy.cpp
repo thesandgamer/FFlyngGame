@@ -35,6 +35,7 @@ void Ennemy::Start()
 	MovingActor::Start();
 	shootComponenet.Start();
 	bodyCol->layer = EnnemyCollider;
+	bodyCol->collideWithLayer = PlayerProjectileCollision;
 
 
 	
@@ -69,6 +70,7 @@ void Ennemy::Update()
 	}
 
 	if (target) Shoot();//SI peut tirer et à une target tire
+
 
 }
 

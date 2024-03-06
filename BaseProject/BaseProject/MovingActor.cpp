@@ -25,9 +25,9 @@ void MovingActor::Init()
     pb.SetPos(&transf.translation);
     pb.SetColliderForCollisionCheck(bodyCol);//Set la boite de collision pour le check des cols de la gravité
     pb.canFall = false;
-    pb.SetBounciness(2);
+    pb.SetBounciness(1);
     pb.friction = .9f;
-    pb.elasticity = .9f;
+    pb.elasticity = .7f;
 }
 
 void MovingActor::Start()
@@ -45,5 +45,13 @@ void MovingActor::Draw()
 {
     bodyCol->Draw();
     pb.Draw();
+}
+
+Vector3 MovingActor::GetForwardVector() const
+{
+    Quaternion rotation = transf.rotation;
+    rotation = QuaternionInvert(rotation);
+    Vector3 dir = { 0,0,-1 };//Forward
+    return Vector3RotateByQuaternion(dir, rotation);
 }
 

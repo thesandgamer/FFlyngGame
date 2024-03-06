@@ -1,6 +1,7 @@
 #include "LevelManager.h"
 
 #include "LevelCreator.h"
+#include "LevelGenerator.h"
 
 void LevelManager::Init()
 {
@@ -8,6 +9,8 @@ void LevelManager::Init()
 	levels.emplace_back(new Level01());
 	levels.emplace_back(new Level03());
 	levels.emplace_back(new LevelCreator());
+	levels.emplace_back(new LevelGenerator());
+
 }
 
 void LevelManager::Start()

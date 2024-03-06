@@ -211,6 +211,8 @@ void LevelCreator::CalculateWherePosActor()
 
 void LevelCreator::AddWallAt(Vector3 pos)
 {
+
+
 	Terrain.push_back(new CubeActor(pos, boxSize, wallColor));
 
 }

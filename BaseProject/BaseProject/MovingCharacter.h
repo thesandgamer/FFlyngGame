@@ -20,8 +20,7 @@ public:
 
 	void Death();
 
-	Vector3 GetForwardVector() const;
-	P_Collision* GetBodyCollider() const { return bodyCol; }
+	Vector3 GetForwardVector() const override;
 
 	Camera& GetCamera() { return camera.GetCamera(); }
 	AC_FirstPersonCamera& GetFirstPersonCam() { return camera; }

@@ -1,7 +1,7 @@
 #pragma once
 #include "Level.h"
 
-class LevelCreator final :
+class LevelCreator :
 	public Level
 {
 public:
@@ -12,7 +12,7 @@ public:
 
 	void CalculateWherePosActor();
 
-private:
+protected:
 	Vector3 boxSize { 10,10,10 };
 	Color wallColor { 239, 123, 69, 255 };
 	Vector3 origin { 0,0,0 };
