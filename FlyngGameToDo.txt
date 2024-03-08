@@ -16,3 +16,11 @@ Wall actor: autotiling pour changer le mesh
 Map editor qu'on va jouer, où on va pouvoir placer les types d'objets dans la grille, on va pouvoir exporter fichier level 
 
 Création map procédurale
+
+
+
+
+//-----------------
+A* 3D:
+
+Grille 3D, on va rajouter un node par tile d'espace non mur 
