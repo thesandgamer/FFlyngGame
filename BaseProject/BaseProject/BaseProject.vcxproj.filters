@@ -25,6 +25,9 @@
     <Filter Include="Header Files\Engine\Physics\ShapeCollision">
       <UniqueIdentifier>{50ce8144-87e9-4a3b-93e0-4e575add9c9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="AStar">
+      <UniqueIdentifier>{6a68351d-ccd0-438d-ba03-f6bb090c75c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CubeActor.h">
@@ -113,6 +116,9 @@
     <ClInclude Include="MovingCharacter.h" />
     <ClInclude Include="MovingActor.h" />
     <ClInclude Include="LevelGenerator.h" />
+    <ClInclude Include="AStarNode.h">
+      <Filter>AStar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -199,5 +205,8 @@
     <ClCompile Include="MovingCharacter.cpp" />
     <ClCompile Include="MovingActor.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
+    <ClCompile Include="AStarNode.cpp">
+      <Filter>AStar</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
