@@ -119,6 +119,9 @@
     <ClInclude Include="AStarNode.h">
       <Filter>AStar</Filter>
     </ClInclude>
+    <ClInclude Include="AStarList.h">
+      <Filter>AStar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -206,6 +209,9 @@
     <ClCompile Include="MovingActor.cpp" />
     <ClCompile Include="LevelGenerator.cpp" />
     <ClCompile Include="AStarNode.cpp">
+      <Filter>AStar</Filter>
+    </ClCompile>
+    <ClCompile Include="AStarList.cpp">
       <Filter>AStar</Filter>
     </ClCompile>
   </ItemGroup>

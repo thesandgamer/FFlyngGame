@@ -1,6 +1,10 @@
 #pragma once
 #include <memory>
 
+namespace AStar
+{
+	
+
 class AStarNode
 {
 public:
@@ -68,3 +72,4 @@ public:
     }
 };
 
+}
