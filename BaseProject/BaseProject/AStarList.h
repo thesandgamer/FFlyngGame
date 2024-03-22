@@ -8,8 +8,8 @@ namespace AStar
 class AStarList
 {
 public:
-    AStarList() {};
-    ~AStarList() {};
+    AStarList() = default;
+    ~AStarList() = default;
 
 
     //=============]Variables[======================//

@@ -3,13 +3,20 @@
 
 namespace AStar
 {
-	
+
+    struct Vector3Pos
+    {
+        int x = { -1 };
+        int y = { -1 };
+        int z = { -1 };
+    };
 
 class AStarNode
 {
 public:
     //=========================]Constructeurs[=========================//
     AStarNode(int x, int y, int z);
+    AStarNode(Vector3Pos pos);
     AStarNode();
     ~AStarNode();
 
