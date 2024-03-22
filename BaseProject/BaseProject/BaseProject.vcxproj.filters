@@ -125,6 +125,7 @@
     <ClInclude Include="AStarGraph.h">
       <Filter>AStar</Filter>
     </ClInclude>
+    <ClInclude Include="AStarManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -220,5 +221,6 @@
     <ClCompile Include="AStarGraph.cpp">
       <Filter>AStar</Filter>
     </ClCompile>
+    <ClCompile Include="AStarManager.cpp" />
   </ItemGroup>
 </Project>

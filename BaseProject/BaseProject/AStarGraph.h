@@ -10,6 +10,7 @@ namespace AStar
 
 class AStarGraph
 {
+public:
 
     AStarGraph(Vector3Pos pos);
     AStarGraph() = default;

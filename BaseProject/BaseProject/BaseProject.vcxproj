@@ -176,6 +176,7 @@
     <ClInclude Include="AnticipateCollisions.h" />
     <ClInclude Include="AStarGraph.h" />
     <ClInclude Include="AStarList.h" />
+    <ClInclude Include="AStarManager.h" />
     <ClInclude Include="AStarNode.h" />
     <ClInclude Include="BoxCollision.h" />
     <ClInclude Include="Ch_MainCharacter.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="AnticipateCollisions.cpp" />
     <ClCompile Include="AStarGraph.cpp" />
     <ClCompile Include="AStarList.cpp" />
+    <ClCompile Include="AStarManager.cpp" />
     <ClCompile Include="AStarNode.cpp" />
     <ClCompile Include="BoxCollision.cpp" />
     <ClCompile Include="Ch_MainCharacter.cpp" />

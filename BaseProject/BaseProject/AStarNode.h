@@ -21,6 +21,9 @@ public:
     ~AStarNode();
 
     //=========================]Variables[=========================//
+public:
+    Vector3Pos GetPosition() const { return { x,y,z }; }
+
     int x;
     int y;
     int z;
