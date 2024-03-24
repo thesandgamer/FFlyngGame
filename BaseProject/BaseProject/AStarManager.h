@@ -1,4 +1,5 @@
 #pragma once
+#include "AStarDrawing.h"
 #include "AStarGraph.h"
 #include "AStarList.h"
 #include "AStarNode.h"
@@ -19,6 +20,9 @@ public:
 
 	void DrawAStarDebug(bool showGrid = true,bool showStartEnd = true) const;
 
+	void SetDrawing(AStarDrawing* newDrawing) { aStarDrawing = newDrawing; }
+
+
 	AStarGraph aStarGrid;
 
 	int GRID_WIDTH;
@@ -33,25 +37,12 @@ public:
 
 	AStarNode current;
 
-	/*
-	const AStarManager& operator=(const AStarManager& other)
-	{
-		this->aStarGrid = other.aStarGrid;
-		this->GRID_WIDTH = other.GRID_WIDTH;
-		this->GRID_HEIGHT = other.GRID_HEIGHT;
-		this->startNode = other.startNode;
-		this->goalNode = other.goalNode;
-		this->openList = other.openList;
-		this->closedList = other.closedList;
-		this->current = other.current;
-
-		return *this;
-	}*/
-
 private:
 	std::vector<Vector3Pos> CalculatePath();
 
-	std::vector<Vector3Pos>* calculatedPath = nullptr;
+	std::vector<Vector3Pos> calculatedPath ;
+
+	AStarDrawing* aStarDrawing{nullptr};
 
 
 };

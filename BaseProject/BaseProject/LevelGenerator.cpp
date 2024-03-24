@@ -1,5 +1,7 @@
 #include "LevelGenerator.h"
 
+#include "AStarDrawRaylib.h"
+
 void LevelGenerator::Start()
 {
 	//------
@@ -20,6 +22,8 @@ void LevelGenerator::Start()
 			}
 		}
 	}*/
+
+	aStar.SetDrawing(new AStarDrawRaylib(boxSize, { (float)aStar.GRID_WIDTH,(float)aStar.GRID_HEIGHT,(float)aStar.GRID_LENGTH }, aStar));
 
 	aStar.aStarGrid.AddObstacle({ 3,3,3 });
 	aStar.aStarGrid.AddObstacle({ 3,3,4 });
@@ -42,38 +46,9 @@ void LevelGenerator::Update()
 
 void LevelGenerator::Draw()
 {
-	Level::Draw();	
+	Level::Draw();
 
-
-	for (int xx = 0; xx < aStar.GRID_WIDTH; ++xx)
-	{
-		for (int yy = 0; yy < aStar.GRID_HEIGHT; ++yy)
-		{
-			for (int zz = 0; zz < aStar.GRID_LENGTH; ++zz)
-			{
-				Color col = WHITE;
-				Vector3 pos = { (float)xx * boxSize.x  ,(float)yy * boxSize.y ,(float)zz * boxSize.z };
-
-				if (!aStar.aStarGrid.GetNodeByPos({xx,yy,zz})->traversable)
-				{
-					col = BLACK;
-					DrawCube(pos, boxSize.x, boxSize.y, boxSize.z, BLACK);
-
-				}
-				else
-				{
-					DrawCubeWires(pos, boxSize.x, boxSize.y, boxSize.z, col);
-
-				}
-			}
-		}
-	}
-
-	for (auto pathPos : path)
-	{
-		Vector3 pos = { (float)pathPos.x * boxSize.x  ,(float)pathPos.y * boxSize.y ,(float)pathPos.z * boxSize.z };
-		DrawCube(pos, boxSize.x, boxSize.y, boxSize.z, RED);
-	}
+	aStar.DrawAStarDebug();
 
 	
 

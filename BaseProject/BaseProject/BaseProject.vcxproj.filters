@@ -128,6 +128,10 @@
     <ClInclude Include="AStarManager.h">
       <Filter>AStar</Filter>
     </ClInclude>
+    <ClInclude Include="AStarDrawing.h">
+      <Filter>AStar</Filter>
+    </ClInclude>
+    <ClInclude Include="AStarDrawRaylib.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">
@@ -226,5 +230,9 @@
     <ClCompile Include="AStarManager.cpp">
       <Filter>AStar</Filter>
     </ClCompile>
+    <ClCompile Include="AStarDrawing.cpp">
+      <Filter>AStar</Filter>
+    </ClCompile>
+    <ClCompile Include="AStarDrawRaylib.cpp" />
   </ItemGroup>
 </Project>

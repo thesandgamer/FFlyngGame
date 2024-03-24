@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include "AStarDrawRaylib.h"
+
 namespace AStar
 {
 	AStarManager::AStarManager(const int width, const int height, const int length): aStarGrid({width, height, length}),
@@ -85,20 +87,24 @@ namespace AStar
         }
         std::vector<Vector3Pos> path = CalculatePath();
 
-        calculatedPath = &path;
+        calculatedPath = path;
         return path;
 	}
 
 	void AStarManager::DrawAStarDebug(bool showGrid, bool showStartEnd ) const
 	{
-        if (showGrid)
+        if (aStarDrawing)
         {
-            
-        }
+            if (showGrid)
+            {
+                aStarDrawing->DrawGraph();  
+            }
 
-        if (calculatedPath)
-        {
-	        
+            if (calculatedPath.size() > 0)
+            {
+                aStarDrawing->DrawPath(calculatedPath);
+
+            }
         }
 	}
 
