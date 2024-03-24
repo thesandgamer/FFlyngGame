@@ -85,11 +85,25 @@ namespace AStar
         }
         std::vector<Vector3Pos> path = CalculatePath();
 
+        calculatedPath = &path;
         return path;
 	}
 
-	std::vector<Vector3Pos> AStarManager::CalculatePath()
+	void AStarManager::ShowDebugPath(bool showGrid, bool showStartEnd ) const
 	{
+        if (showGrid)
+        {
+            
+        }
+
+        if (calculatedPath)
+        {
+	        
+        }
+	}
+
+	std::vector<Vector3Pos> AStarManager::CalculatePath()
+	{ 
 		std::vector<Vector3Pos> path;
 		while (current != startNode)
 		{

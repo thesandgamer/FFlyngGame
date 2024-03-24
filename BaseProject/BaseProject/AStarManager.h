@@ -2,7 +2,6 @@
 #include "AStarGraph.h"
 #include "AStarList.h"
 #include "AStarNode.h"
-#include "CubeActor.h"
 
 
 namespace AStar
@@ -17,6 +16,8 @@ public:
 	~AStarManager() = default;
 
 	std::vector<Vector3Pos> GetPath(Vector3Pos startPos, Vector3Pos endPos);
+
+	void ShowDebugPath(bool showGrid = true,bool showStartEnd = true) const;
 
 	AStarGraph aStarGrid;
 
@@ -50,6 +51,8 @@ public:
 private:
 	std::vector<Vector3Pos> CalculatePath();
 
+	std::vector<Vector3Pos>* calculatedPath = nullptr;
+
 
 };
 
@@ -63,9 +66,11 @@ static const double CalculateHeuristic(Vector3Pos posA, Vector3Pos posB)
 	//ToDo: calculer l'heuristique en 3D
 
 	//Le 1 vaut la distance entre les points(ou cases dans le cas d'une grille)
-	double heuritic = 1 * (dx + dy) + (sqrt(2) - 2 * 1) * std::min(dx, dy);
+	double heuristic = 0;
+	//heuritic = 1 * (dx + dy) + (sqrt(2) - 2 * 1) * std::min(dx, dy);
+	heuristic = 1 * sqrt(dx * dx + dy * dy + dz * dz);
 
-	return heuritic;
+	return heuristic;
 }
 
 static const double CalculateFCostOfNode(Vector3Pos currentNode, Vector3Pos startNode, Vector3Pos goalNode)
