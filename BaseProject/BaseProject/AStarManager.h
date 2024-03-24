@@ -17,7 +17,7 @@ public:
 
 	std::vector<Vector3Pos> GetPath(Vector3Pos startPos, Vector3Pos endPos);
 
-	void ShowDebugPath(bool showGrid = true,bool showStartEnd = true) const;
+	void DrawAStarDebug(bool showGrid = true,bool showStartEnd = true) const;
 
 	AStarGraph aStarGrid;
 

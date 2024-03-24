@@ -89,7 +89,7 @@ namespace AStar
         return path;
 	}
 
-	void AStarManager::ShowDebugPath(bool showGrid, bool showStartEnd ) const
+	void AStarManager::DrawAStarDebug(bool showGrid, bool showStartEnd ) const
 	{
         if (showGrid)
         {
