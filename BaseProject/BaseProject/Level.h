@@ -47,6 +47,8 @@ protected:
 
 	Light lights[MAX_LIGHTS] = {{0}};
 
+	//ToDo: rajouet le A* et faire en sorte de l'injecter dans ce qui l'utilise
+
 	//CubeActor* deathzone;
 
 };
