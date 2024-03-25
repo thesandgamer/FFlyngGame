@@ -105,6 +105,11 @@ namespace AStar
                 aStarDrawing->DrawPath(calculatedPath);
 
             }
+
+            if (showStartEnd)
+            {
+                aStarDrawing->DrawStartEnd();
+            }
         }
 	}
 
