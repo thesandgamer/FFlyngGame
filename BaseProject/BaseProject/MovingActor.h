@@ -22,7 +22,7 @@ protected:
 	bool gravity = false;
 
 	PhysicBody pb{};
-	Transform transf{ {0,40,0},{0,0,0,0},{1,1,1} };
+	Transform transf{ {0,0,0},{0,0,0,0},{1,1,1} };
 	bool isGrounded{ false };
 
 	P_Collision* bodyCol = nullptr;

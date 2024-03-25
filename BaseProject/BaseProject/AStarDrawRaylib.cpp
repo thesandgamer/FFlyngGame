@@ -1,5 +1,7 @@
 #include "AStarDrawRaylib.h"
 
+#include <dinput.h>
+
 #include "CubeActor.h"
 #include "AStarManager.h"
 
@@ -68,3 +70,17 @@ void AStarDrawRaylib::DrawStartEnd()
 	DrawSphere(endPos, 10, GREEN);
 
 }
+
+/*
+Vector3 AStarDrawRaylib::PosInGridToPosInWorld(Vector3 posInGrid)
+{
+
+	return {posInGrid.x * boxSize.x,posInGrid.y * boxSize.y,posInGrid.z * boxSize.z };
+}
+
+AStar::Vector3Pos AStarDrawRaylib::PosInWorldToPosInGrid(Vector3 posInWorld)
+{
+	return { (int) (posInWorld.x / boxSize.x),(int)(posInWorld.y / boxSize.y),(int)(posInWorld.z / boxSize.z) };
+
+}
+*/

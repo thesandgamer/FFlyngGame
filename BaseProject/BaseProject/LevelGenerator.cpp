@@ -23,12 +23,15 @@ void LevelGenerator::Start()
 		}
 	}*/
 
-	aStar.SetDrawing(new AStarDrawRaylib(boxSize, { (float)aStar.GRID_WIDTH,(float)aStar.GRID_HEIGHT,(float)aStar.GRID_LENGTH }, aStar));
+	/*
+	aStar = new AStar::AStarManager(5, 5, 5);
 
-	aStar.aStarGrid.AddObstacle({ 3,3,3 });
-	aStar.aStarGrid.AddObstacle({ 3,3,4 });
-	aStar.aStarGrid.AddObstacle({ 3,4,4 });
-	path = aStar.GetPath({0, 0, 0}, {4, 4, 4});
+	aStar->SetDrawing(new AStarDrawRaylib(boxSize, { (float)aStar->GRID_WIDTH,(float)aStar->GRID_HEIGHT,(float)aStar->GRID_LENGTH }, *aStar));
+
+	aStar->aStarGrid.AddObstacle({ 3,3,3 });
+	aStar->aStarGrid.AddObstacle({ 3,3,4 });
+	aStar->aStarGrid.AddObstacle({ 3,4,4 });
+	path = aStar->GetPath({0, 0, 0}, {4, 4, 4});*/
 
 	for (auto vector3_pos : path)
 	{
@@ -48,7 +51,7 @@ void LevelGenerator::Draw()
 {
 	Level::Draw();
 
-	aStar.DrawAStarDebug();
+	//aStar->DrawAStarDebug();
 
 	
 

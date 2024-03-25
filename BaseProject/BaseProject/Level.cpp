@@ -24,6 +24,7 @@ void Level::Start()
     }
     for each (Ennemy * element in Ennemies)
     {
+        //element->InitAStar(*aStar);
         element->Start();
     }
     for each (EndPortal * element in EndPortals)

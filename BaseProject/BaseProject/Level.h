@@ -49,6 +49,9 @@ protected:
 
 	//ToDo: rajouet le A* et faire en sorte de l'injecter dans ce qui l'utilise
 
+	//Setup A* grid with is size
+	//AStar::AStarManager* aStar;
+
 	//CubeActor* deathzone;
 
 };

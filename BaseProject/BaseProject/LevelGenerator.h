@@ -14,7 +14,7 @@ public:
 protected:
 	Vector3 maxSizeOfMap{ 20,20,20 };
 
-	AStar::AStarManager aStar {5,5,5};
+	
 	
 	//
 	std::vector<AStar::Vector3Pos> path;
