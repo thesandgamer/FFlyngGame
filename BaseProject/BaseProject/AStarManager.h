@@ -44,6 +44,8 @@ private:
 
 	AStarDrawing* aStarDrawing{nullptr};
 
+	//ToDo: rajouter un lissage du chemin
+	//ToDo: faire que ça ne prenne pas les diagonales
 
 };
 
@@ -60,6 +62,7 @@ static const double CalculateHeuristic(Vector3Pos posA, Vector3Pos posB)
 	double heuristic = 0;
 	//heuritic = 1 * (dx + dy) + (sqrt(2) - 2 * 1) * std::min(dx, dy);
 	heuristic = 1 * sqrt(dx * dx + dy * dy + dz * dz);
+	//heuristic = 1 * (dx + dy + dz);
 
 	return heuristic;
 }

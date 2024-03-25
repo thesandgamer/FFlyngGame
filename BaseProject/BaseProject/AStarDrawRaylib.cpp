@@ -57,12 +57,7 @@ void AStarDrawRaylib::DrawPath(std::vector<AStar::Vector3Pos> path)
 
 		DrawLine3D(startPos, endPos,RED);
 	}
-	/*
-	for (auto pathPos : path)	
-	{
-		Vector3 pos = { (float)pathPos.x * boxSize.x  ,(float)pathPos.y * boxSize.y ,(float)pathPos.z * boxSize.z };
-		DrawCube(pos, boxSize.x, boxSize.y, boxSize.z, RED);
-	}*/
+
 }
 
 void AStarDrawRaylib::DrawStartEnd()

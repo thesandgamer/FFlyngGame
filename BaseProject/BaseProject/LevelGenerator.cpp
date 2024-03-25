@@ -6,7 +6,7 @@ void LevelGenerator::Start()
 {
 	//------
 	boxSize = { 50,50,50};
-	chara = new ChMainCharacter();
+	chara = new MovingCharacter();
 
 	/*
 	for (int xx = 0; xx < maxSizeOfMap.x; ++xx)

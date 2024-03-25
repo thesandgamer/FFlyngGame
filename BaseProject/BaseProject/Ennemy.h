@@ -1,6 +1,7 @@
 #pragma once
 #include "SphereCollision.h"
 #include "AC_Shoot.h"
+#include "AStarManager.h"
 #include "MovingActor.h"
 
 
@@ -19,6 +20,8 @@ public:
 	void Update() override;
 
 	SphereCollision* GetTriggerCollider() { return &triggerCollider; }
+
+	void MoveToLocation(AStar::AStarManager& astar, Vector3& posToGo);
 
 private:
 

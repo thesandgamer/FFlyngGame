@@ -74,6 +74,16 @@ void Ennemy::Update()
 
 }
 
+void Ennemy::MoveToLocation(AStar::AStarManager& astar, Vector3& posToGo)
+{
+	//ToDo: transformer la positon actuelle du mesh en une position dans la grille
+	//ToDo: transformer la postion to Go en position dans la grille
+	//ToDo: calculer le chemin avec les positions calculés
+	//ToDo: dans le tick bouger le mécha vers la première position de la liste où aller
+	//ToDo: quand il a atteins la positon va jusqu'a la suivante et ainsi de suite jusqu'a ce que le path soit vide
+}
+
+
 void Ennemy::Shoot()
 {
 	if (target == nullptr)

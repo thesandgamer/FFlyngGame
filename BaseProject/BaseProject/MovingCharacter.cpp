@@ -16,6 +16,7 @@ void MovingCharacter::Start()
 {
     MovingActor::Start();
     bodyCol->layer = PlayerCollider;
+    bodyCol->showCollisions = false;
 
 
     //----------Set camera
