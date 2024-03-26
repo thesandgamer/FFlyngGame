@@ -77,6 +77,7 @@ void Level::Update()
     }
     for each (Ennemy * element in Ennemies)
     {
+        element->InitAStar(*aStar);
         element->Update();
     }
     for each (EndPortal * element in EndPortals)

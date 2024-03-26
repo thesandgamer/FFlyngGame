@@ -78,7 +78,7 @@ void Ennemy::Update()
 
 void Ennemy::MoveToLocation(Vector3& posToGo)
 {
-	/*
+	
 	if(astarLink)
 	{
 		//ToDo: transformer la positon actuelle du mesh en une position dans la grille
@@ -95,7 +95,7 @@ void Ennemy::MoveToLocation(Vector3& posToGo)
 	else
 	{
 		std::cout << "ERROR: Try to move with A* but no AstarManager lined" << std::endl;
-	}*/
+	}
 
 	
 }

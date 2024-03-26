@@ -23,7 +23,7 @@ public:
 
 	void MoveToLocation(Vector3& posToGo);
 
-	//void InitAStar(AStar::AStarManager& ref) { astarLink = &ref; }
+	void InitAStar(AStar::AStarManager& ref) { astarLink = &ref; }
 
 private:
 
@@ -33,7 +33,7 @@ private:
 	void Shoot();
 	void ReloadShoot();
 
-	//AStar::AStarManager* astarLink = nullptr;
+	AStar::AStarManager* astarLink = nullptr;
 
 
 	Transform* target{ nullptr }; //La target que va cibler l'ennemi

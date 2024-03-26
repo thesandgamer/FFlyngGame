@@ -22,7 +22,7 @@ public:
 
 	void SetDrawing(AStarDrawing* newDrawing) { aStarDrawing = newDrawing; }
 
-	//AStarDrawing* GetDrawing() const { return aStarDrawing; }
+	AStarDrawing* GetDrawing() const { return aStarDrawing; }
 
 
 	AStarGraph aStarGrid;

@@ -18,10 +18,10 @@ public:
 	void DrawPath(std::vector<AStar::Vector3Pos> path) override;
 	void DrawStartEnd() override;
 
-	/*
+	
 	 Vector3 PosInGridToPosInWorld(Vector3 posInGrid);
 	 AStar::Vector3Pos PosInWorldToPosInGrid(Vector3 posInWorld);
-	 */
+	 
 
 private:
 	Vector3 boxSize {10,10,10};
