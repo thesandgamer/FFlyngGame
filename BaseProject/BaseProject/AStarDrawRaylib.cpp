@@ -1,6 +1,5 @@
 #include "AStarDrawRaylib.h"
 
-#include <dinput.h>
 
 #include "CubeActor.h"
 #include "AStarManager.h"
