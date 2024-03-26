@@ -9,6 +9,7 @@ namespace AStar
         int x = { -1 };
         int y = { -1 };
         int z = { -1 };
+        bool operator==(const Vector3Pos& vector3_pos) const { return (x == vector3_pos.x && y == vector3_pos.z && z == vector3_pos.z); };
     };
 
 class AStarNode

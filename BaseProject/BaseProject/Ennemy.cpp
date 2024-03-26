@@ -88,6 +88,11 @@ void Ennemy::MoveToLocation(Vector3* posToGo)
 		//ToDo: transformer la postion to Go en position dans la grille
 		const AStar::Vector3Pos endPos = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInWorldToPosInGrid(*posToGo);
 
+		if (startPos == endPos)
+		{
+			std::cout << "ERROR: Same start and end location" << std::endl;
+
+		}
 
 		//ToDo: calculer le chemin avec les positions calculés
 		currentPath= astarLink->GetPath(startPos, endPos);

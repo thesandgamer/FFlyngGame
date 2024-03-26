@@ -47,7 +47,7 @@ void LevelGenerator::Start()
 	Level::Start();
 
 	
-	Vector3 posToGo = { 5,5,5 };
+	Vector3 posToGo = { 200,200,100 };
 	Ennemies[0]->MoveToLocation(&posToGo);
 }
 
@@ -61,6 +61,7 @@ void LevelGenerator::Draw()
 	Level::Draw();
 
 	aStar->DrawAStarGrid();
+
 
 	
 
