@@ -37,6 +37,7 @@ void AStarDrawRaylib::DrawGraph()
 
 void AStarDrawRaylib::DrawPath(std::vector<AStar::Vector3Pos> path)
 {
+	if (path.size() <= 0) return;
 	Vector3 startPos = {(float)manager_.startNode.GetPosition().x * boxSize.x,(float)manager_.startNode.GetPosition().y * boxSize.y,(float)manager_.startNode.GetPosition().z * boxSize.z};
 	Vector3 endPos = { (float)path[0].x * boxSize.x,(float)path[0].y * boxSize.y,(float)path[0].z * boxSize.z };
 	DrawLine3D(startPos, endPos, RED);

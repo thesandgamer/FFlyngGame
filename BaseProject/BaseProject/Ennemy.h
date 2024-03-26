@@ -21,7 +21,7 @@ public:
 
 	SphereCollision* GetTriggerCollider() { return &triggerCollider; }
 
-	void MoveToLocation(Vector3& posToGo);
+	void MoveToLocation(Vector3* posToGo);
 
 	void InitAStar(AStar::AStarManager& ref) { astarLink = &ref; }
 
@@ -34,6 +34,7 @@ private:
 	void ReloadShoot();
 
 	AStar::AStarManager* astarLink = nullptr;
+	std::vector<AStar::Vector3Pos> currentPath;
 
 
 	Transform* target{ nullptr }; //La target que va cibler l'ennemi

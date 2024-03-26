@@ -23,7 +23,12 @@ void LevelGenerator::Start()
 		}
 	}*/
 
-	/*
+	std::vector<Ennemy* > ennmis = {
+	  new Ennemy({ 0,0,0 }, 20)
+	};
+	Ennemies.assign(ennmis.begin(), ennmis.end());
+
+	
 	aStar = new AStar::AStarManager(5, 5, 5);
 
 	aStar->SetDrawing(new AStarDrawRaylib(boxSize, { (float)aStar->GRID_WIDTH,(float)aStar->GRID_HEIGHT,(float)aStar->GRID_LENGTH }, *aStar));
@@ -31,15 +36,19 @@ void LevelGenerator::Start()
 	aStar->aStarGrid.AddObstacle({ 3,3,3 });
 	aStar->aStarGrid.AddObstacle({ 3,3,4 });
 	aStar->aStarGrid.AddObstacle({ 3,4,4 });
-	path = aStar->GetPath({0, 0, 0}, {4, 4, 4});*/
 
 	for (auto vector3_pos : path)
 	{
 		std::cout << vector3_pos.x << " " << vector3_pos.y << " " << vector3_pos.z << "\n";
 	}
 	std::cout << std::endl;
+
 	//---------
 	Level::Start();
+
+	
+	Vector3 posToGo = { 5,5,5 };
+	Ennemies[0]->MoveToLocation(&posToGo);
 }
 
 void LevelGenerator::Update()
@@ -51,7 +60,7 @@ void LevelGenerator::Draw()
 {
 	Level::Draw();
 
-	//aStar->DrawAStarDebug();
+	aStar->DrawAStarGrid();
 
 	
 

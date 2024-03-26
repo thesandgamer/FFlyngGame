@@ -17,8 +17,9 @@ public:
 	~AStarManager() = default;
 
 	std::vector<Vector3Pos> GetPath(Vector3Pos startPos, Vector3Pos endPos);
+	void DrawAStarGrid() const;
+	void DrawAStarDebug(std::vector<Vector3Pos>* path, bool showStartEnd) const;
 
-	void DrawAStarDebug(bool showGrid = true,bool showStartEnd = true) const;
 
 	void SetDrawing(AStarDrawing* newDrawing) { aStarDrawing = newDrawing; }
 

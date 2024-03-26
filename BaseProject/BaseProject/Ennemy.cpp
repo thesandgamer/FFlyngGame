@@ -51,6 +51,8 @@ void Ennemy::Draw()
 	//---On va dessiner l'apparence de l'ennemi
 	DrawSphere(transf.translation, 2, RED);
 	triggerCollider.Draw();
+
+	astarLink->DrawAStarDebug(&currentPath, true);
 }
 
 void Ennemy::Update()
@@ -76,7 +78,7 @@ void Ennemy::Update()
 
 }
 
-void Ennemy::MoveToLocation(Vector3& posToGo)
+void Ennemy::MoveToLocation(Vector3* posToGo)
 {
 	
 	if(astarLink)
@@ -84,10 +86,11 @@ void Ennemy::MoveToLocation(Vector3& posToGo)
 		//ToDo: transformer la positon actuelle du mesh en une position dans la grille
 		const AStar::Vector3Pos startPos = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInWorldToPosInGrid(transf.translation);
 		//ToDo: transformer la postion to Go en position dans la grille
-		const AStar::Vector3Pos endPos = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInWorldToPosInGrid(posToGo);
+		const AStar::Vector3Pos endPos = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInWorldToPosInGrid(*posToGo);
+
 
 		//ToDo: calculer le chemin avec les positions calculés
-		astarLink->GetPath(startPos, endPos);
+		currentPath= astarLink->GetPath(startPos, endPos);
 
 		//ToDo: dans le tick bouger le mécha vers la première position de la liste où aller
 		//ToDo: quand il a atteins la positon va jusqu'a la suivante et ainsi de suite jusqu'a ce que le path soit vide

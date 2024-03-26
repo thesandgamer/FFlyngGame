@@ -91,21 +91,22 @@ namespace AStar
         return path;
 	}
 
-	void AStarManager::DrawAStarDebug(bool showGrid, bool showStartEnd ) const
+    void AStarManager::DrawAStarGrid() const
+    {
+        if (aStarDrawing)
+        {
+            aStarDrawing->DrawGraph();
+        }
+	}
+
+	void AStarManager::DrawAStarDebug(std::vector<Vector3Pos>* path, bool showStartEnd ) const
 	{
         if (aStarDrawing)
         {
-            if (showGrid)
+            if( path)
             {
-                aStarDrawing->DrawGraph();  
+                aStarDrawing->DrawPath(*path);
             }
-
-            if (calculatedPath.size() > 0)
-            {
-                aStarDrawing->DrawPath(calculatedPath);
-
-            }
-
             if (showStartEnd)
             {
                 aStarDrawing->DrawStartEnd();
