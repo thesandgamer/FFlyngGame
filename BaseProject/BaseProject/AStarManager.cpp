@@ -4,6 +4,8 @@
 
 #include "AStarDrawRaylib.h"
 
+//ToDo: rajouter une vérification de si le goal est hors de la grille
+
 namespace AStar
 {
 	AStarManager::AStarManager(const int width, const int height, const int length): aStarGrid({width, height, length}),
@@ -86,6 +88,11 @@ namespace AStar
             return {};
         }
         std::vector<Vector3Pos> path = CalculatePath();
+
+        if (path.size() <=0)
+        {
+            std::cout << "Error A*: Path not found" << std::endl;
+        }
 
         calculatedPath = path;
         return path;
