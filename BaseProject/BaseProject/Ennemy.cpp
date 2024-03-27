@@ -88,9 +88,7 @@ void Ennemy::MoveToLocation(Vector3* posToGo)
 	
 	if(astarLink)
 	{
-		//ToDo: transformer la positon actuelle du mesh en une position dans la grille
 		const AStar::Vector3Pos startPos = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInWorldToPosInGrid(transf.translation);
-		//ToDo: transformer la postion to Go en position dans la grille
 		const AStar::Vector3Pos endPos = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInWorldToPosInGrid(*posToGo);
 
 		if (startPos == endPos)
@@ -99,13 +97,10 @@ void Ennemy::MoveToLocation(Vector3* posToGo)
 
 		}
 
-		//ToDo: calculer le chemin avec les positions calculés
 		currentPath= astarLink->GetPath(startPos, endPos);
 		it = 0;
 		currentTime = 0;
 
-		//ToDo: dans le tick bouger le mécha vers la première position de la liste où aller
-		//ToDo: quand il a atteins la positon va jusqu'a la suivante et ainsi de suite jusqu'a ce que le path soit vide
 	}
 	else
 	{

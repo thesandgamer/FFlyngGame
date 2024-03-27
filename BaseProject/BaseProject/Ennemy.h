@@ -9,6 +9,8 @@
 class Ennemy: public MovingActor
 {
 	//ToDo: faire un mesh pour l'ennemi, et réussir à faire en sorte de tourner cet ennemi en fonction de son déplacement ou de sa cible si il en a une
+	//ToDo: transvaser la partie A* dans un component ou dans MovingActor
+
 
 public:
 	Ennemy();
