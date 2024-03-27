@@ -72,7 +72,7 @@ void AStarDrawRaylib::DrawStartEnd()
 }
 
 
-Vector3 AStarDrawRaylib::PosInGridToPosInWorld(Vector3 posInGrid)
+Vector3 AStarDrawRaylib::PosInGridToPosInWorld(AStar::Vector3Pos posInGrid)
 {
 
 	return {posInGrid.x * boxSize.x,posInGrid.y * boxSize.y,posInGrid.z * boxSize.z };

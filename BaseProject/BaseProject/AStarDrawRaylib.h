@@ -19,7 +19,7 @@ public:
 	void DrawStartEnd() override;
 
 	
-	 Vector3 PosInGridToPosInWorld(Vector3 posInGrid);
+	 Vector3 PosInGridToPosInWorld(AStar::Vector3Pos posInGrid);
 	 AStar::Vector3Pos PosInWorldToPosInGrid(Vector3 posInWorld);
 	 
 

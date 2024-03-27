@@ -3,6 +3,7 @@
 #include <algorithm>
 
 #include "AStarDrawRaylib.h"
+#include "easings.h"
 
 Ennemy::Ennemy() : MovingActor()
 {
@@ -52,12 +53,16 @@ void Ennemy::Draw()
 	DrawSphere(transf.translation, 2, RED);
 	triggerCollider.Draw();
 
-	astarLink->DrawAStarDebug(&currentPath, true);
+	if (AStar::HavePath(currentPath))
+	{
+		astarLink->DrawAStarDebug(&currentPath, true);
+	}
 }
 
 void Ennemy::Update()
 {
 	MovingActor::Update();
+	MakeMovement();
 
 	shootComponenet.Update();
 	if (triggerCollider.IsColliding())
@@ -96,6 +101,8 @@ void Ennemy::MoveToLocation(Vector3* posToGo)
 
 		//ToDo: calculer le chemin avec les positions calculés
 		currentPath= astarLink->GetPath(startPos, endPos);
+		it = 0;
+		currentTime = 0;
 
 		//ToDo: dans le tick bouger le mécha vers la première position de la liste où aller
 		//ToDo: quand il a atteins la positon va jusqu'a la suivante et ainsi de suite jusqu'a ce que le path soit vide
@@ -134,4 +141,42 @@ void Ennemy::Shoot()
 
 void Ennemy::ReloadShoot()
 {
+}
+
+void Ennemy::MakeMovement()
+{
+	if (currentPath.empty()) return;
+	
+	if (it < currentPath.size()) //Si on est arrivé à la fin des position où aller
+	{
+		AStar::Vector3Pos pos = currentPath[it];
+		Vector3 posToGo = dynamic_cast<AStarDrawRaylib*>(astarLink->GetDrawing())->PosInGridToPosInWorld(pos);
+
+		//transf.translation = posToGo;
+
+
+		//-------------Moving the ennemy to the target-----------------------//
+		//ToDo: faire que le mouvement utilise la physique
+		transf.translation.x = EaseQuadInOut(currentTime, transf.translation.x, posToGo.x - transf.translation.x, 100);//On va au x suivant suivant un lerping
+		transf.translation.y = EaseQuadInOut(currentTime, transf.translation.y, posToGo.y - transf.translation.y, 100);//On va au y suivant suivant un lerping
+		transf.translation.z = EaseQuadInOut(currentTime, transf.translation.z, posToGo.z - transf.translation.z, 100);//On va au y suivant suivant un lerping
+
+		currentTime++;
+
+		if (transf.translation.x == posToGo.x && transf.translation.y == posToGo.y && transf.translation.z == posToGo.z)
+		{
+			it++;
+			currentTime = 0;
+
+		}
+	}
+	else
+	{
+		currentPath = {};
+	}
+
+
+	
+	
+
 }

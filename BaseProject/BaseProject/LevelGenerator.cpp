@@ -36,6 +36,9 @@ void LevelGenerator::Start()
 	aStar->aStarGrid.AddObstacle({ 3,3,3 });
 	aStar->aStarGrid.AddObstacle({ 3,3,4 });
 	aStar->aStarGrid.AddObstacle({ 3,4,4 });
+	aStar->aStarGrid.AddObstacle({ 3,2,4 });
+	aStar->aStarGrid.AddObstacle({ 3,3,2 });
+	aStar->aStarGrid.AddObstacle({ 3,3,1 });
 
 	for (auto vector3_pos : path)
 	{

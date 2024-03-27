@@ -86,4 +86,12 @@ static const double CalculateFCostOfNode(Vector3Pos currentNode, Vector3Pos star
 }
 
 
+static bool HavePath(std::vector<Vector3Pos>& path)
+{
+
+	return !path.empty();
+}
+
+
+
 }

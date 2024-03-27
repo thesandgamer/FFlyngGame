@@ -33,8 +33,14 @@ private:
 	void Shoot();
 	void ReloadShoot();
 
+	void MakeMovement();
+
 	AStar::AStarManager* astarLink = nullptr;
 	std::vector<AStar::Vector3Pos> currentPath;
+
+	float currentTime = 0;
+	int it = 0;
+
 
 
 	Transform* target{ nullptr }; //La target que va cibler l'ennemi
