@@ -95,3 +95,11 @@ static bool HavePath(std::vector<Vector3Pos>& path)
 
 
 }
+
+
+
+template<typename  T>
+constexpr bool almostEqual(T a, T b,T tolerence)
+{
+	return std::abs(a - b) <= tolerence;
+}
