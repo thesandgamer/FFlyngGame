@@ -24,7 +24,7 @@ void Level0::Start()
     };
     Ennemies.assign(ennmis.begin(), ennmis.end());
 
-    Terrain.push_back(new CubeActor({ 0,0,0 }, { 64,10, 64 }, { 239, 123, 69, 255 }));//Créer le sol
+    Terrain.push_back(new CubeActor({ 0,-34,0 }, { 64,10, 64 }, { 239, 123, 69, 255 }));//Créer le sol
     
     Level::Start();
 

@@ -23,6 +23,7 @@ class Level
 public:
 	Level() = default;
 	virtual ~Level() = default;
+	virtual void Init();
 	virtual void Start() ;
 	virtual void Update() ;
 	virtual void Draw() ;
@@ -40,6 +41,7 @@ protected:
 	std::vector<Ennemy*> Ennemies; 
 	std::vector<EndPortal*> EndPortals;
 	std::vector<MovableActor*> MovablesActors;
+	std::vector<MovingActor*> MovingActors;
 	std::vector<Interuptor*> Interuptors;
 
 	std::vector<PhysicActor*> PhysicActors; 

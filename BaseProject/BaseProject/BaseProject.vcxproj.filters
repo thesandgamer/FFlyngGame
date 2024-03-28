@@ -45,12 +45,6 @@
     <ClInclude Include="Level03.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MovableActor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Level.h">
       <Filter>Header Files\Engine\LevelManging</Filter>
     </ClInclude>
@@ -132,6 +126,12 @@
       <Filter>AStar</Filter>
     </ClInclude>
     <ClInclude Include="AStarDrawRaylib.h" />
+    <ClInclude Include="MovableActor.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AC_FirstPersonCamera.cpp">

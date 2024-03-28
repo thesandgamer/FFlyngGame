@@ -16,7 +16,7 @@ public:
 	Ennemy();
 	Ennemy(Vector3 pos, float detectionRadius);
 
-
+	void Init() override;
 	void Start() override;
 	void Draw() override;
 	void Update() override;

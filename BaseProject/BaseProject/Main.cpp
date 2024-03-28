@@ -76,7 +76,6 @@ int main(int argc, char* argv[])
     SetTargetFPS(60);
 
     Utility::GetInstance()->Start();
-    LevelManager::GetInstance()->Init();
     Start();
 
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -137,6 +136,9 @@ void Init()
 
     //Set the shader link in the utility
     Utility::GetInstance()->shader = &shader;
+
+    LevelManager::GetInstance()->Init();
+
 }
 
 

@@ -33,6 +33,13 @@ void LevelGenerator::Start()
 
 	aStar->SetDrawing(new AStarDrawRaylib(boxSize, { (float)aStar->GRID_WIDTH,(float)aStar->GRID_HEIGHT,(float)aStar->GRID_LENGTH }, *aStar));
 
+	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,3 * boxSize.z });
+	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,4 * boxSize.z });
+	AddWallAt({ 3 * boxSize.x,4 * boxSize.y,4 * boxSize.z });
+	AddWallAt({ 3 * boxSize.x,2 * boxSize.y,4 * boxSize.z });
+	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,2 * boxSize.z });
+	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,1 * boxSize.z });
+
 	aStar->aStarGrid.AddObstacle({ 3,3,3 });
 	aStar->aStarGrid.AddObstacle({ 3,3,4 });
 	aStar->aStarGrid.AddObstacle({ 3,4,4 });

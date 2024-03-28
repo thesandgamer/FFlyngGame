@@ -11,6 +11,8 @@ void LevelManager::Init()
 	levels.emplace_back(new LevelCreator());
 	levels.emplace_back(new LevelGenerator());
 
+	levels.at(levelIndex)->Init();
+
 }
 
 void LevelManager::Start()
