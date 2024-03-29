@@ -13,7 +13,10 @@ Ennemy::Ennemy() : MovingActor()
 
 Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 {
+	bodyCol = new SphereCollision(2);
 	transf.translation = pos;
+	//On ajoute le trigger pour la détéction
+	//bodyCol->layer = BodyColliders;
 
 	//----Trigger
 	triggerCollider = SphereCollision(detectionRadius);//Peut être juste avoir une fonction set radius
@@ -28,15 +31,6 @@ Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 	
 }
 
-void Ennemy::Init()
-{
-	bodyCol = new SphereCollision(10);
-
-	MovingActor::Init();
-
-	bodyCol->checkingCollision = true;
-
-}
 
 
 void Ennemy::Start()
@@ -45,6 +39,8 @@ void Ennemy::Start()
 	shootComponenet.Start();
 	bodyCol->layer = EnnemyCollider;
 	bodyCol->collideWithLayer = PlayerProjectileCollision;
+
+
 	
 }
 
@@ -54,7 +50,7 @@ void Ennemy::Draw()
 
 	shootComponenet.Draw();
 	//---On va dessiner l'apparence de l'ennemi
-	DrawSphere(transf.translation, 10, ORANGE);
+	DrawSphere(transf.translation, 2, RED);
 	triggerCollider.Draw();
 
 	if (AStar::HavePath(currentPath))
@@ -160,10 +156,10 @@ void Ennemy::MakeMovement()
 		//transf.translation.y = EaseQuadInOut(currentTime, transf.translation.y, posToGo.y - transf.translation.y, 100);//On va au y suivant suivant un lerping
 		//transf.translation.z = EaseQuadInOut(currentTime, transf.translation.z, posToGo.z - transf.translation.z, 100);//On va au y suivant suivant un lerping
 
-		pb.AddForce(Vector3Multiply(Vector3Normalize(posToGo),{15,15,15,}));
+		pb.AddForce(Vector3Multiply(Vector3Normalize(posToGo),{20,20,20,}));
 
-		//std::cout << posToGo.x << " " << posToGo.y << " " << posToGo.z << " \n";
-		//std::cout << transf.translation.x << " " << transf.translation.y << " " << transf.translation.z <<std::endl;
+		std::cout << posToGo.x << " " << posToGo.y << " " << posToGo.z << " \n";
+		std::cout << transf.translation.x << " " << transf.translation.y << " " << transf.translation.z <<std::endl;
 		currentTime++;
 
 		if (almostEqual(transf.translation.x, posToGo.x, 40.0f) &&
@@ -172,7 +168,6 @@ void Ennemy::MakeMovement()
 		{
 			it++;
 			currentTime = 0;
-			std::cout << "Go to next point" << std::endl;
 
 		}
 	}
@@ -186,3 +181,6 @@ void Ennemy::MakeMovement()
 	
 
 }
+
+
+#define 
