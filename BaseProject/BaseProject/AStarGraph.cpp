@@ -83,8 +83,7 @@ namespace AStar
             }
         }*/
 
-        //ToDo: passer ça en 3D
-
+        /*
         for(int xx = -1; xx <= 1 ; xx++)
         {
             for (int yy = -1; yy <= 1; yy++)
@@ -94,14 +93,18 @@ namespace AStar
                     nodes.push_back(GetNodeByPos({ current.x + xx,current.y + yy,current.z + zz }));
                 }
             }
-        }
+        }*/
 
-        /*
-        nodes.push_back(GetNodeByPos({ current.x - 1, current.y + 0, }));
-        nodes.push_back(GetNodeByPos({ current.x + 1, current.y + 0, }));
-        nodes.push_back(GetNodeByPos({ current.x + 0, current.y - 1, }));
-        nodes.push_back(GetNodeByPos({ current.x + 0, current.y + 1, }));
-        */
+        
+        nodes.push_back(GetNodeByPos({ current.x - 1, current.y + 0,current.z + 0}));
+        nodes.push_back(GetNodeByPos({ current.x + 1, current.y + 0,current.z - 0}));
+
+        nodes.push_back(GetNodeByPos({ current.x - 0, current.y - 1,current.z + 0}));
+        nodes.push_back(GetNodeByPos({ current.x + 0, current.y + 1,current.z - 0}));
+
+        nodes.push_back(GetNodeByPos({ current.x - 0, current.y - 0,current.z + 1}));
+        nodes.push_back(GetNodeByPos({ current.x + 0, current.y + 0,current.z - 1}));
+        
 
 
         return nodes;

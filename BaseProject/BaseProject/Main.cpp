@@ -101,7 +101,7 @@ Shader shader;
 
 void Init()
 {
-   
+    ToggleFullscreen();
 #pragma region Basic Lighting shader
   // Load basic lighting shader
     

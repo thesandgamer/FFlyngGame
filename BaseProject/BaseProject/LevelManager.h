@@ -38,10 +38,9 @@ public:
 
 private:
 
-	int levelIndex{ 4 };
+	int levelIndex{ 1 };
 
 	std::vector<Level*> levels;
-
 
 
 

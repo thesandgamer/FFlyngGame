@@ -26,7 +26,7 @@ void AStarDrawRaylib::DrawGraph()
 				
 				if (!manager_.aStarGrid.GetNodeByPos({ xx,yy,zz })->traversable)
 				{
-					DrawCube(pos, boxSize.x, boxSize.y, boxSize.z, BLACK);
+					//DrawCube(pos, boxSize.x, boxSize.y, boxSize.z, BLACK);
 
 				}
 			

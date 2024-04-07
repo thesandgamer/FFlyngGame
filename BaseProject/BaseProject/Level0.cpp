@@ -17,14 +17,15 @@ void Level0::Start()
     };
     Terrain.assign(cubes.begin(), cubes.end());
 
-    PhysicActors.push_back(new PhysicActor({10,25,4}));
+    PhysicActors.push_back(new PhysicActor({0,170,0}));
+    //MovingActors.push_back(new   MovingActor({ 10,25,4 }));
 
     std::vector<Ennemy* > ennmis = {
        new Ennemy({ 50,50,0 }, 20)
     };
     Ennemies.assign(ennmis.begin(), ennmis.end());
 
-    Terrain.push_back(new CubeActor({ 0,-34,0 }, { 64,10, 64 }, { 239, 123, 69, 255 }));//Créer le sol
+    Terrain.push_back(new CubeActor({ 0,0,0 }, { 64,10, 64 }, { 239, 123, 69, 255 }));//Créer le sol
     
     Level::Start();
 

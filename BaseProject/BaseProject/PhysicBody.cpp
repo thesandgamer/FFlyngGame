@@ -12,7 +12,7 @@ void PhysicBody::Update()
 
 void PhysicBody::Draw()
 {
-	DrawRay({ *refPos,Vector3Normalize(vel) }, Vector3Length(vel), WHITE);
+	DrawRay({ *refPos,Vector3Normalize(vel) }, Vector3Length(vel), BLUE);
 	//DrawRay({ *refPos,{1,0,0}}, 5, WHITE);
 	//DrawSphere(*refPos, 5, WHITE);
 }

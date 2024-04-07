@@ -38,9 +38,9 @@ protected:
 	bool dir[4]{ 0,0,0,0 };
 
 	/**\brief Vitesse de déplacement */
-	float maxSpeed{ 70 };
+	float maxSpeed{ 30 };
 	/**\brief Vitesse de déplacement en Vertical seulement */
-	float upDownSpeed{ 50 };
+	float upDownSpeed{ 25 };
 
 	/** \brief A quel point le déplacement perd en vitesse*/
 	float friction{ 1.5f };

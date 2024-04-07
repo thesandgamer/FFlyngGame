@@ -35,7 +35,10 @@ void LevelGenerator::Start()
 
 	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,3 * boxSize.z });
 	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,4 * boxSize.z });
-	AddWallAt({ 3 * boxSize.x,4 * boxSize.y,4 * boxSize.z });
+	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,3 * boxSize.z });
+
+	AddWallAt({ 2 * boxSize.x,3 * boxSize.y,1 * boxSize.z });
+
 	AddWallAt({ 3 * boxSize.x,2 * boxSize.y,4 * boxSize.z });
 	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,2 * boxSize.z });
 	AddWallAt({ 3 * boxSize.x,3 * boxSize.y,1 * boxSize.z });
@@ -46,6 +49,7 @@ void LevelGenerator::Start()
 	aStar->aStarGrid.AddObstacle({ 3,2,4 });
 	aStar->aStarGrid.AddObstacle({ 3,3,2 });
 	aStar->aStarGrid.AddObstacle({ 3,3,1 });
+	aStar->aStarGrid.AddObstacle({ 2,3,1 });
 
 	for (auto vector3_pos : path)
 	{
@@ -57,13 +61,18 @@ void LevelGenerator::Start()
 	Level::Start();
 
 	
-	Vector3 posToGo = { 200,200,100 };
-	Ennemies[0]->MoveToLocation(&posToGo);
+
 }
 
 void LevelGenerator::Update()
 {
 	Level::Update();
+
+	if (IsKeyReleased(KEY_P))
+	{
+		Vector3 posToGo = { 200,200,100 };
+		Ennemies[0]->MoveToLocation(&posToGo);
+	}
 }
 
 void LevelGenerator::Draw()

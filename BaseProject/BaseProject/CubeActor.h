@@ -25,6 +25,8 @@ public:
 
 	Transform transform{{0,0,0},{0,0,0,0},{1,1,1}};
 
+	Model& GetModel(){ return cubeModel; }
+
 protected:
 	BoxCollision collision{ transform.scale };
 

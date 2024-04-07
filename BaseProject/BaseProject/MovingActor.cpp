@@ -39,6 +39,7 @@ void MovingActor::Start()
 void MovingActor::Update()
 {
     pb.Update();
+    
 }
 
 void MovingActor::Draw()

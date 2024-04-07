@@ -31,6 +31,10 @@ Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 	
 }
 
+void Ennemy::Init()
+{
+	MovingActor::Init();
+}
 
 
 void Ennemy::Start()
@@ -152,15 +156,22 @@ void Ennemy::MakeMovement()
 
 		//-------------Moving the ennemy to the target-----------------------//
 		//ToDo: faire que le mouvement utilise la physique
-		//transf.translation.x = EaseQuadInOut(currentTime, transf.translation.x, posToGo.x - transf.translation.x, 100);//On va au x suivant suivant un lerping
-		//transf.translation.y = EaseQuadInOut(currentTime, transf.translation.y, posToGo.y - transf.translation.y, 100);//On va au y suivant suivant un lerping
-		//transf.translation.z = EaseQuadInOut(currentTime, transf.translation.z, posToGo.z - transf.translation.z, 100);//On va au y suivant suivant un lerping
+		transf.translation.x = EaseQuadInOut(currentTime, transf.translation.x, posToGo.x - transf.translation.x, 150);//On va au x suivant suivant un lerping
+		transf.translation.y = EaseQuadInOut(currentTime, transf.translation.y, posToGo.y - transf.translation.y, 150);//On va au y suivant suivant un lerping
+		transf.translation.z = EaseQuadInOut(currentTime, transf.translation.z, posToGo.z - transf.translation.z, 150);//On va au y suivant suivant un lerping
 
+		currentTime++;
+
+		if (transf.translation.x == posToGo.x && transf.translation.y == posToGo.y && transf.translation.z == posToGo.z)
+		{
+			it++;
+			currentTime = 0;
+		}
+		/*
 		pb.AddForce(Vector3Multiply(Vector3Normalize(posToGo),{20,20,20,}));
 
 		std::cout << posToGo.x << " " << posToGo.y << " " << posToGo.z << " \n";
 		std::cout << transf.translation.x << " " << transf.translation.y << " " << transf.translation.z <<std::endl;
-		currentTime++;
 
 		if (almostEqual(transf.translation.x, posToGo.x, 40.0f) &&
 			almostEqual(transf.translation.y, posToGo.y, 40.0f)&&
@@ -169,7 +180,7 @@ void Ennemy::MakeMovement()
 			it++;
 			currentTime = 0;
 
-		}
+		}*/
 	}
 	else
 	{
@@ -181,6 +192,3 @@ void Ennemy::MakeMovement()
 	
 
 }
-
-
-#define 

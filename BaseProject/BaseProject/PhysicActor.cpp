@@ -21,12 +21,11 @@ void PhysicActor::Start()
 	pb.canFall = false;
 	pb.SetPos(&transform.translation);
 	pb.SetColliderForCollisionCheck(GetCollision());//Set la boite de collision pour le check des cols de la gravité
-	pb.SetBounciness(1);
-	pb.friction = .9f;
-	pb.elasticity = 1;
+	pb.SetBounciness(1.0f);
+	pb.friction = .2f;
+	pb.elasticity = .9f;
 	pb.canFall = true;
 
-	pb.AddForce({ 500,0 ,500 });
 	//pb.AddForce({ 0,-200 ,0 });
 
 
@@ -48,7 +47,14 @@ void PhysicActor::Update()
 {
 	CubeActor::Update();
 
+
 	pb.Update();
+	//GetModel().transform;
+
+	if (IsKeyReleased(KEY_P))
+	{
+		pb.AddForce({ 0,0 ,500 });
+	}
 
 
 }

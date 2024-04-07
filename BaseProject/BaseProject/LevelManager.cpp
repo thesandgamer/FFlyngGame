@@ -6,7 +6,7 @@
 void LevelManager::Init()
 {
 	levels.emplace_back(new Level0());
-	levels.emplace_back(new Level01());
+	//levels.emplace_back(new Level01());
 	levels.emplace_back(new Level03());
 	levels.emplace_back(new LevelCreator());
 	levels.emplace_back(new LevelGenerator());
