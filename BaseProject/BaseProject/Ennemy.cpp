@@ -13,7 +13,7 @@ Ennemy::Ennemy() : MovingActor()
 
 Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 {
-	bodyCol = new SphereCollision(2);
+	bodyCol = new SphereCollision(5);
 	transf.translation = pos;
 	//On ajoute le trigger pour la détéction
 	//bodyCol->layer = BodyColliders;
@@ -27,6 +27,9 @@ Ennemy::Ennemy(Vector3 pos, float detectionRadius) : MovingActor()
 	triggerCollider.checkingCollision = true;
 
 	triggerCollider.id = 8;
+
+	triggerCollider.showCollisions = false;
+	bodyCol->showCollisions = false;
 
 	
 }

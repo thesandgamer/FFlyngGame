@@ -79,7 +79,7 @@ void LevelGenerator::Draw()
 {
 	Level::Draw();
 
-	aStar->DrawAStarGrid();
+	aStar->DrawAStarGrid(false);
 
 
 	

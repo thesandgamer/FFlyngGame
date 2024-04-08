@@ -6,5 +6,6 @@ class Level0 final :
 {
 public:
     void Start() override;
+    void Update() override;
 };
 
